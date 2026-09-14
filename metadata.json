@@ -1,0 +1,6 @@
+{
+  "name": "Chuyên Án VN10",
+  "description": "Chuyên án VN10: Từ 4 tiếp viên hàng không đến đại án ma túy 227 bị cáo - Hồ sơ điều tra chuyên sâu và toàn cảnh tư pháp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

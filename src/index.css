@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #5b060c;
+  --color-primary-container: #7a1f1f;
+  --color-navy-sub: #1f2a44;
+  --color-surface-paper: #F9F7F1;
+  --font-display-hero: "Playfair Display", serif;
+  --font-headline-lg: "Playfair Display", serif;
+  --font-title-editorial: "Playfair Display", serif;
+  --font-body-lead: "Inter", sans-serif;
+  --font-body-regular: "Inter", sans-serif;
+  --font-data-mono: "IBM Plex Mono", monospace;
+  --font-data-mono-bold: "IBM Plex Mono", monospace;
+  --font-label-tactical: "IBM Plex Mono", monospace;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #F9F7F1;
+    color: #1B1B1F;
+    font-family: 'Inter', sans-serif;
+  }
+  * {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.font-display-hero, .font-headline-lg, .font-title-editorial {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-body-lead, .font-body-regular {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-data-mono, .font-data-mono-bold, .font-label-tactical {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.light-grid-canvas {
+  background-color: #F9F7F1;
+  background-image: linear-gradient(to right, #E0DDD5 1px, transparent 1px),
+                    linear-gradient(to bottom, #E0DDD5 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@keyframes radarPulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+.radar-ring {
+  animation: radarPulse 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes dashFlow {
+  to { stroke-dashoffset: -40; }
+}
+
+.animated-flow-path {
+  stroke-dasharray: 6 4;
+  animation: dashFlow 1.8s linear infinite;
+}
+
+.person-silhouette {
+  transition: fill 0.15s ease;
+}
+
+.person-wrapper:hover .person-silhouette {
+  fill: #7A1F1F !important;
+}
+
+.person-wrapper .tooltip-box {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.person-wrapper:hover .tooltip-box {
+  opacity: 1;
+}
+
+/* Material symbols outlined font settings */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
