@@ -12,7 +12,7 @@ export const Chapter1Discovery: React.FC = () => {
             BIÊN BẢN HIỆN TRƯỜNG // HẢI QUAN TÂN SƠN NHẤT
           </span>
         </div>
-        <h2 className="font-headline-lg text-3xl md:text-4xl text-[#7a1f1f] font-bold tracking-tight mb-8">
+        <h2 className="font-headline-lg text-4xl md:text-5xl text-[#7a1f1f] font-bold tracking-tight mb-8">
           Chương 1: Phát hiện
         </h2>
 

@@ -1,15 +1,49 @@
 @import "tailwindcss";
 
+/* Font thương hiệu theo moodboard. File thật sẽ được thả vào src/assets/fonts/
+   (xem README trong thư mục đó) — cho tới lúc đó, @font-face dưới đây không
+   tìm thấy file nên trình duyệt tự rơi về font fallback (Playfair Display / Inter). */
+@font-face {
+  font-family: 'Sac Viet Regular';
+  src: url('./assets/fonts/SacViet-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sac Viet Regular';
+  src: url('./assets/fonts/SacViet-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SVN-Gilroy';
+  src: url('./assets/fonts/SVNGilroy-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SVN-Gilroy';
+  src: url('./assets/fonts/SVNGilroy-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SVN-Gilroy';
+  src: url('./assets/fonts/SVNGilroy-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
 @theme {
   --color-primary: #5b060c;
   --color-primary-container: #7a1f1f;
   --color-navy-sub: #1f2a44;
   --color-surface-paper: #F9F7F1;
-  --font-display-hero: "Playfair Display", serif;
-  --font-headline-lg: "Playfair Display", serif;
-  --font-title-editorial: "Playfair Display", serif;
-  --font-body-lead: "Inter", sans-serif;
-  --font-body-regular: "Inter", sans-serif;
+  --font-display-hero: "Sac Viet Regular", "Playfair Display", serif;
+  --font-headline-lg: "Sac Viet Regular", "Playfair Display", serif;
+  --font-title-editorial: "Sac Viet Regular", "Playfair Display", serif;
+  --font-body-lead: "SVN-Gilroy", "Inter", sans-serif;
+  --font-body-regular: "SVN-Gilroy", "Inter", sans-serif;
   --font-data-mono: "IBM Plex Mono", monospace;
   --font-data-mono-bold: "IBM Plex Mono", monospace;
   --font-label-tactical: "IBM Plex Mono", monospace;
@@ -34,11 +68,11 @@
 }
 
 .font-display-hero, .font-headline-lg, .font-title-editorial {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Sac Viet Regular', 'Playfair Display', serif;
 }
 
 .font-body-lead, .font-body-regular {
-  font-family: 'Inter', sans-serif;
+  font-family: 'SVN-Gilroy', 'Inter', sans-serif;
 }
 
 .font-data-mono, .font-data-mono-bold, .font-label-tactical {

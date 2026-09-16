@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { LegalArgument } from '../types';
+import ld4 from '../assets/ld4.png';
 
 const ARGUMENTS: LegalArgument[] = [
   {
@@ -65,8 +66,7 @@ const ARGUMENTS: LegalArgument[] = [
     category: 'ĐIỀU 20 BỘ LUẬT HÌNH SỰ',
     title: '"Sự kiện bất ngờ" - Lằn ranh quyết định',
     badge: 'ĐIỀU 20 BỘ LUẬT HÌNH SỰ',
-    imageSrc:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBjWWvvJelp8f8eiWhv1wdD45aPB9EkA0fXPnNN8SWKy8fhHmRy4mRtpV-ub02IJ8vZUaeSLSX9FXGxsgv4xsAj6KrpDKwmwYNPOFqry56oG2VKF2R_UvkYCNAj3Gyb36Yqho-dTVi5_8Y492MdMPDuULdXzMg6eEg28uLewm21skBMSR0qsAFJaJ76OlElHPt5eyknkdm7SWZErF1tRgoCDS9nCI-BTqVq5iDDOPZZFhVF1Yd-0JA41Ia8JEX4KEa2GGI',
+    imageSrc: ld4,
     imageAlt: 'Luận điểm 04: Sự kiện bất ngờ',
     caption:
       'Hoàn tất thủ tục điều tra, xác định yếu tố "Sự kiện bất ngờ" và ra quyết định trả tự do.',
@@ -96,10 +96,10 @@ export const Chapter2LegalDefense: React.FC = () => {
             HỒ SƠ TỐ TỤNG &amp; CĂN CỨ ĐIỀU TRA ĐỘC QUYỀN
           </span>
         </div>
-        <h2 className="font-headline-lg text-3xl md:text-4xl text-[#7a1f1f] font-bold tracking-tight mb-3">
+        <h2 className="font-headline-lg text-4xl md:text-5xl text-[#7a1f1f] font-bold tracking-tight mb-3">
           Chương 2: Những căn cứ pháp lý &amp; chứng cứ chứng minh vô can của 4 tiếp viên
         </h2>
-        <p className="font-body-lead text-base md:text-lg text-[#4a5568] max-w-4xl mb-8">
+        <p className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-4xl mb-8">
           Hệ thống 4 luận điểm mang tính quyết định được Cơ quan Cảnh sát điều tra Công an TP.HCM và Viện Kiểm sát đối chiếu chặt chẽ theo quy định Bộ luật Hình sự, bảo toàn nguyên tắc thượng tôn pháp luật: "Không làm oan người vô tội".
         </p>
 
@@ -122,7 +122,7 @@ export const Chapter2LegalDefense: React.FC = () => {
             </div>
             <div className="mt-4 flex flex-wrap items-center justify-between text-xs font-mono text-gray-600 border-t border-[#E0DDD5] pt-3">
               <span className="flex items-center gap-1.5 font-semibold text-[#1B1B1F]">
-                <span className="w-2 h-2 bg-red-600 inline-block animate-pulse" /> HỒ SƠ GIẢI MẬT C04 - BỘ CÔNG AN
+                
               </span>
               <span className="text-[#7a1f1f] font-bold">
                 LUẬN ĐIỂM 0{activeTab}/04
@@ -160,11 +160,11 @@ export const Chapter2LegalDefense: React.FC = () => {
                   <span className="px-2.5 py-0.5 bg-red-100 text-[#7a1f1f] font-mono text-xs uppercase tracking-wider font-bold mb-2 inline-block">
                     {currentArg.category}
                   </span>
-                  <h3 className="font-title-editorial text-2xl font-bold text-[#7a1f1f] mb-2">
+                  <h3 className="font-title-editorial text-3xl font-bold text-[#7a1f1f] mb-2">
                     {currentArg.title}
                   </h3>
                 </div>
-                <p className="font-body-regular text-[#1B1B1F] text-sm leading-relaxed text-justify">
+                <p className="font-body-regular text-[#1B1B1F] text-[1.25rem] leading-relaxed text-justify">
                   {currentArg.description}
                 </p>
 
@@ -188,7 +188,7 @@ export const Chapter2LegalDefense: React.FC = () => {
             </div>
 
             <div className="pt-4 border-t border-[#E0DDD5] flex justify-between items-center text-xs font-mono text-gray-600 mt-6">
-              <span>VIỆN KIỂM SÁT NHÂN DÂN TP.HCM</span>
+
               <span className="font-bold text-[#1F2A44]">THƯỢNG TÔN PHÁP LUẬT</span>
             </div>
           </div>

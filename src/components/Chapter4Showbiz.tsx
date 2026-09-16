@@ -60,10 +60,10 @@ export const Chapter4Showbiz: React.FC = () => {
             ĐIỂM NÓNG DƯ LUẬN // VĂN HÓA THẦN TƯỢNG VỠ MỘNG
           </span>
         </div>
-        <h2 className="font-headline-lg text-3xl md:text-4xl text-[#7a1f1f] font-bold tracking-tight mb-4">
+        <h2 className="font-headline-lg text-4xl md:text-5xl text-[#7a1f1f] font-bold tracking-tight mb-4">
           Chương 4: Nhánh rẽ Showbiz &amp; Sự sa ngã của người nổi tiếng
         </h2>
-        <p className="font-body-lead text-base md:text-lg text-[#4a5568] max-w-3xl mb-12">
+        <p className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-12">
           Khi đường dây bị bóc tách tận gốc, danh sách khách hàng VIP và mắt xích tổ chức sử dụng trái phép ma túy đã để lộ những cái tên đình đám trên mạng xã hội và làng giải trí.
         </p>
 
@@ -80,13 +80,13 @@ export const Chapter4Showbiz: React.FC = () => {
                   </span>
                   <span className="font-mono text-xs text-gray-500">{item.date}</span>
                 </div>
-                <h3 className="font-title-editorial text-xl font-bold text-[#1B1B1F] mb-1">
+                <h3 className="font-title-editorial text-2xl font-bold text-[#1B1B1F] mb-1">
                   {item.name}
                 </h3>
                 <p className="font-mono text-xs text-[#7a1f1f] font-semibold mb-4">
                   ({item.alias} {item.year !== '2023 - 2024' ? `- Sinh năm ${item.year}` : ''})
                 </p>
-                <div className="space-y-2 mb-6 text-xs text-[#4a5568]">
+                <div className="space-y-2 mb-6 text-xs text-[#1F2A44]">
                   <p>
                     <strong className="text-[#1B1B1F]">Tội danh:</strong> {item.crime}.
                   </p>

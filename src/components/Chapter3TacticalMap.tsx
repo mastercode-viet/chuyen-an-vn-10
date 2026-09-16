@@ -4,9 +4,9 @@ import { DeathPenaltyDefendant, ShipmentData } from '../types';
 const SHIPMENTS: ShipmentData[] = [
   {
     id: 1,
-    date: 'Th.1 – đầu Th.3',
-    label: 'Th.1 – đầu Th.3 (6 chuyến trót lọt)',
-    weight: '1-6 chuyến',
+    date: '',
+    label: '01/2026 - 03/2026',
+    weight: '6 chuyến hàng',
     detail: 'Trót lọt',
     heightPercent: 10,
   },
@@ -137,10 +137,10 @@ export const Chapter3TacticalMap: React.FC = () => {
             SƠ ĐỒ TỔNG HỢP &amp; DÒNG CHẢY HÀNG CẤM
           </span>
         </div>
-        <h2 className="font-headline-lg text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[#1B1B1F]">
+        <h2 className="font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 text-[#1B1B1F]">
           Chương 3: Lộ diện đường dây tội phạm xuyên quốc gia
         </h2>
-        <p className="font-body-lead text-base md:text-lg text-[#4a5568] max-w-3xl mb-10">
+        <p className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-10">
           Từ một kiện hàng vô chủ, Cục C04 Bộ Công an phối hợp Công an TP.HCM đã lột trần cấu trúc 3 nhánh phân phối độc lập, truy quét 11 trùm đầu mối và bóc gỡ hệ thống rửa tiền quốc tế hàng trăm tỷ đồng.
         </p>
 
@@ -153,10 +153,10 @@ export const Chapter3TacticalMap: React.FC = () => {
             <span className="text-gray-500">MẬT LỆNH ĐÊM 15/03/2023 TRƯỚC GIỜ PHÁ ÁN</span>
           </div>
           <div className="font-body-regular text-[#4a5568] text-sm leading-relaxed space-y-3">
-            <p>
+            <p className="text-[1.25rem]">
               Theo kết luận điều tra, trước khi bị chặn bắt tại sân bay Tân Sơn Nhất, đường dây của Hà Danh Nậm đã thực hiện trót lọt ít nhất <strong>6 chuyến vận chuyển ma túy</strong> từ Pháp về Việt Nam theo cùng phương thức xách tay và chuyển phát nhanh bưu kiện quốc tế mà không bị phát hiện.
             </p>
-            <p className="italic text-[#1B1B1F] bg-[#F9F7F1] p-4 border border-[#E0DDD5]">
+            <p className="text-[1.25rem] italic text-[#1B1B1F] bg-[#F9F7F1] p-4 border border-[#E0DDD5]">
               "Vào đêm 15/3/2023, chỉ vài giờ trước khi chuyến bay mang số hiệu VN10 cất cánh từ sân bay Charles de Gaulle (Paris), đối tượng môi giới trung gian đã gấp rút đóng gói 157 tuýp kem đánh răng chứa hơn 11kg ma túy vào các kiện hàng tạp hóa rồi chia đều gửi cho 4 nữ tiếp viên nhận mang hộ về TP.HCM với giá cước thỏa thuận 6,5 Euro/kg. Toàn bộ kiện hàng lập tức rơi vào diện giám sát đặc biệt khi máy bay hạ cánh."
             </p>
           </div>
@@ -250,7 +250,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
                       <span className="material-symbols-outlined text-3xl text-gray-500">arrow_right_alt</span>
                       <span className="font-mono text-[10px] text-gray-600 bg-white border border-[#1B1B1F] px-2 py-0.5 uppercase tracking-wider">
-                        CDG ➔ VIỆT NAM
+                         Sân bay CDG (Paris) ➔ VIỆT NAM
                       </span>
                       <span className="font-mono text-[9px] text-gray-500">Khoảng cách: ~10.000 km</span>
                     </div>
@@ -483,10 +483,10 @@ export const Chapter3TacticalMap: React.FC = () => {
                   <span className="font-bold text-[#7a1f1f] uppercase">BƯỚC 01 // KHỞI ĐIỂM</span>
                   <span className="text-gray-500">NGUỒN CUNG PHÁP</span>
                 </div>
-                <h4 className="font-title-editorial text-base font-bold text-[#1B1B1F] mb-2">
+                <h4 className="font-title-editorial text-lg font-bold text-[#1B1B1F] mb-2">
                   Xuất phát điểm xuyên lục địa
                 </h4>
-                <p className="font-body-regular text-xs text-[#4a5568] leading-relaxed mb-3">
+                <p className="font-body-regular text-[1.25rem] text-[#1F2A44] leading-relaxed mb-3">
                   Từ Paris (Pháp), nguồn ma túy được tập kết và đóng gói tinh vi. Kẻ cầm đầu <strong>Hà Danh Nậm</strong> chỉ đạo toàn bộ mạng lưới từ xa qua phần mềm mã hóa, điều động 2 con đường hàng không song song về Việt Nam.
                 </p>
                 <span className="inline-block font-mono text-[10px] text-[#7a1f1f] font-semibold uppercase">
@@ -505,10 +505,10 @@ export const Chapter3TacticalMap: React.FC = () => {
                   <span className="font-bold text-[#1F2A44] uppercase">BƯỚC 02 // TUYẾN QUỐC TẾ</span>
                   <span className="text-gray-500">2 LUỒNG VẬN CHUYỂN</span>
                 </div>
-                <h4 className="font-title-editorial text-base font-bold text-[#1B1B1F] mb-2">
+                <h4 className="font-title-editorial text-lg font-bold text-[#1B1B1F] mb-2">
                   Hàng không Tân Sơn Nhất &amp; Bưu kiện Nội Bài
                 </h4>
-                <p className="font-body-regular text-xs text-[#4a5568] leading-relaxed mb-3">
+                <p className="font-body-regular text-[1.25rem] text-[#1F2A44] leading-relaxed mb-3">
                   Tuyến 1 xách tay qua tiếp viên đáp xuống Tân Sơn Nhất (157 tuýp kem ma túy). Tuyến 2 chuyển phát nhanh bưu kiện quốc tế qua Nội Bài rồi trung chuyển hỏa tốc vào phía Nam.
                 </p>
                 <span className="inline-block font-mono text-[10px] text-[#1F2A44] font-semibold uppercase">
@@ -527,10 +527,10 @@ export const Chapter3TacticalMap: React.FC = () => {
                   <span className="font-bold text-amber-800 uppercase">BƯỚC 03 // TUYẾN NỘI ĐỊA</span>
                   <span className="text-gray-500">TỔNG KHO ĐỒNG NAI</span>
                 </div>
-                <h4 className="font-title-editorial text-base font-bold text-[#1B1B1F] mb-2">
+                <h4 className="font-title-editorial text-lg font-bold text-[#1B1B1F] mb-2">
                   Hội tụ về kho trung chuyển Hoàng Sỹ Thắng
                 </h4>
-                <p className="font-body-regular text-xs text-[#4a5568] leading-relaxed mb-3">
+                <p className="font-body-regular text-[1.25rem] text-[#1F2A44] leading-relaxed mb-3">
                   Mọi kiện hàng từ hai miền hội tụ về Đồng Nai. Hoàng Sỹ Thắng tiếp nhận, tháo dỡ và xé lẻ thành các gói nhỏ theo đúng lệnh của Nậm, hưởng thù lao 96 triệu đồng.
                 </p>
                 <span className="inline-block font-mono text-[10px] text-amber-800 font-semibold uppercase">
@@ -549,10 +549,10 @@ export const Chapter3TacticalMap: React.FC = () => {
                   <span className="font-bold text-red-700 uppercase">BƯỚC 04 // PHÂN PHỐI BÁN LẺ</span>
                   <span className="text-gray-500">BÙI VĂN ÁNH</span>
                 </div>
-                <h4 className="font-title-editorial text-base font-bold text-[#1B1B1F] mb-2">
+                <h4 className="font-title-editorial text-lg font-bold text-[#1B1B1F] mb-2">
                   Tỏa nguồn hàng về Bình Dương &amp; TP.HCM
                 </h4>
-                <p className="font-body-regular text-xs text-[#4a5568] leading-relaxed mb-3">
+                <p className="font-body-regular text-[1.25rem] text-[#1F2A44] leading-relaxed mb-3">
                   Từ Đồng Nai, Bùi Văn Ánh chuyển hàng đến tay các trùm buôn sỉ và tụ điểm ăn chơi khắp Bình Dương, TP.HCM với cước từ 500.000 đến 4.000.000 VNĐ mỗi chuyến.
                 </p>
                 <span className="inline-block font-mono text-[10px] text-red-700 font-semibold uppercase">
@@ -625,17 +625,17 @@ export const Chapter3TacticalMap: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Cột 1 */}
             <div className="p-6 bg-[#F9F7F1] border border-[#1B1B1F]">
-              <h3 className="font-title-editorial text-[#7A1F1F] text-xl font-bold uppercase tracking-wider pb-3 mb-4 border-b border-[#1B1B1F]">
+              <h3 className="font-title-editorial text-[#7A1F1F] text-2xl font-bold uppercase tracking-wider pb-3 mb-4 ">
                 Nhánh bán buôn qua Telegram “Tèo”
               </h3>
-              <div className="space-y-4 font-body-regular text-[#1B1B1F] text-justify leading-relaxed text-sm sm:text-base">
-                <p>
+              <div className="space-y-4 font-body-regular text-[#1B1B1F] text-justify leading-relaxed">
+                <p className="text-[1.25rem]">
                   Song song với việc tự tổ chức vận chuyển, Nậm còn dùng chính tài khoản Telegram <strong>Tèo</strong> để bán buôn ma túy, cũng lấy nguồn từ châu Âu, cho các đầu mối hoàn toàn độc lập với Thắng và Ánh. Lớn nhất trong số này là <strong>Nguyễn Huy Hoàng</strong>, sinh năm 1997. Từ ngày 23/2 đến 16/3/2023, Hoàng đặt mua 7 lô hàng từ <strong>Tèo</strong>, tổng cộng 118.600 viên MDMA, tương đương khoảng 39,8kg, rồi bán lại cho <strong>Lê Thắng Anh Tú</strong>, <strong>Văn Hoàng Minh</strong> và nhiều đầu mối khác. Ngoài nguồn từ Nậm, Hoàng còn mua riêng khoảng 5kg ketamine của <strong>Nguyễn Xuân Hiếu</strong>. Hiếu, người cũng cung cấp ketamine cho một số đầu mối khác trong đại án, bị HĐXX xác định chịu trách nhiệm hình sự tổng cộng 6,8kg ketamine và cũng nhận án <strong>tử hình</strong> dù đang bỏ trốn, bị xét xử vắng mặt.
                 </p>
-                <p>
+                <p className="text-[1.25rem]">
                   Tổng cộng, Hoàng phải chịu trách nhiệm hình sự về gần 40kg MDMA và 5kg ketamine. Để vận hành khâu bán lẻ, Hoàng thuê Nguyễn Tuấn Anh nhận hàng, Huỳnh Thanh Hưng cất giữ và phân chia, còn Huỳnh Thanh Hảo trực tiếp giao hàng. Riêng Hảo được xác định đã thực hiện 500 đơn giao ma túy bán lẻ theo chỉ đạo của Hoàng, với tổng khối lượng qua tay hơn 1kg ketamine và MDMA.
                 </p>
-                <p>
+                <p className="text-[1.25rem]">
                   Từ Hoàng, ma túy tiếp tục chảy xuống hai đầu mối bán lẻ khác. <strong>Lê Thắng Anh Tú</strong> nhiều lần mua lại của Hoàng, tổng cộng gần 32kg MDMA, đồng thời tự mua thêm ketamine để bán lại, thuê Đào Duy Phương nhận, cất giữ và giao hàng cho khách với tiền công 40 triệu đồng mỗi tháng. HĐXX xác định Tú chịu trách nhiệm hơn 35kg MDMA, hơn 14kg ketamine và hơn 11kg ma túy các loại khác. <strong>Văn Hoàng Minh</strong>, sinh năm 2000, mua 10.000 viên MDMA, tương đương khoảng 3,9kg với giá 800 triệu đồng, rồi chỉ đạo Hưng bán lại một phần, chịu trách nhiệm hơn 6kg ma túy các loại. Cả Hoàng, Tú và Minh đều bị tuyên án <strong>tử hình</strong>.
                 </p>
               </div>
@@ -643,17 +643,17 @@ export const Chapter3TacticalMap: React.FC = () => {
 
             {/* Cột 2 */}
             <div className="p-6 bg-[#F9F7F1] border border-[#1B1B1F]">
-              <h3 className="font-title-editorial text-[#7A1F1F] text-xl font-bold uppercase tracking-wider pb-3 mb-4 border-b border-[#1B1B1F]">
+              <h3 className="font-title-editorial text-[#7A1F1F] text-2xl font-bold uppercase tracking-wider pb-3 mb-4 ">
                 Nhóm Telegram độc lập, và nguồn Campuchia
               </h3>
-              <div className="space-y-4 font-body-regular text-[#1B1B1F] text-justify leading-relaxed text-sm sm:text-base">
-                <p>
+              <div className="space-y-4 font-body-regular text-[#1B1B1F] text-justify leading-relaxed">
+                <p className="text-[1.25rem]">
                   Bên cạnh hệ thống của Nậm, cơ quan điều tra còn phát hiện hai nhánh khác cùng bị gộp vào đại án. Nhóm của <strong>Lê Nguyễn Gia Bảo</strong> và <strong>Trần Kiến An</strong> lập các nhóm kín trên Telegram để chỉ đạo đồng phạm nhận, cất giữ và giao ma túy. HĐXX đánh giá An không giữ vai trò thứ yếu mà cùng Bảo trực tiếp tổ chức, điều hành hoạt động mua bán. Ngày 13/11/2022, Quân bán cho Bảo 4kg và bán cho An 1kg, cùng giá 427 triệu đồng mỗi kg. Bảo bị xác định chịu trách nhiệm hơn 11,2kg ketamine, hơn 5,1kg thuốc lắc và hơn 17kg ma túy các loại khác.
                 </p>
-                <p>
+                <p className="text-[1.25rem]">
                   Nhánh còn lại do <strong>Phạm Anh Khoa</strong> cầm đầu, người nhiều lần trực tiếp sang Campuchia mua ma túy đưa về Việt Nam. Khoa chịu trách nhiệm hơn 7kg ma túy tổng hợp, trong đó một phần bán cho chính <strong>Lê Thắng Anh Tú</strong>.
                 </p>
-                <p>
+                <p className="text-[1.25rem]">
                   Riêng <strong>Phạm Đức Duy</strong>, từ người sử dụng ma túy trở thành đầu mối mua bán, ba lần đặt hàng từ một người tên Hòa, danh tính chưa được công bố đầy đủ, rồi rủ thêm người tham gia cất giữ, đóng gói, giao hàng. Ngày 28/8/2023, công an bắt quả tang khi Duy chỉ đạo đồng phạm giao hàng, khám xét nơi ở thu giữ hơn 5kg ma túy các loại. Duy, cùng với Bảo, An, Quân và Khoa, đều bị tuyên án <strong>tử hình</strong>.
                 </p>
               </div>
@@ -666,7 +666,7 @@ export const Chapter3TacticalMap: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between pb-3 mb-6 border-b border-[#1B1B1F]">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 bg-[#7A1F1F] inline-block" />
-              <h3 className="font-title-editorial text-[#7A1F1F] text-2xl font-bold uppercase tracking-wider">
+              <h3 className="font-title-editorial text-[#7A1F1F] text-3xl font-bold uppercase tracking-wider">
                 Toàn cảnh: một chuyến bay, bốn nhánh, mười một án tử hình
               </h3>
             </div>
@@ -674,7 +674,7 @@ export const Chapter3TacticalMap: React.FC = () => {
               [GIAI ĐOẠN 1 // HĐXX TAND TP.HCM]
             </span>
           </div>
-          <p className="font-body-regular text-[#1B1B1F] text-justify leading-relaxed text-sm sm:text-base mb-10 max-w-5xl">
+          <p className="font-body-regular text-[#1B1B1F] text-justify leading-relaxed text-[1.25rem] mb-10 max-w-5xl">
             Từ vụ phát hiện ma túy trong hành lý 4 tiếp viên hàng không, cơ quan điều tra đã mở rộng, lần ra gần 500 nhánh và phân nhánh trải khắp cả nước, tại 34 tỉnh, thành. Nhà chức trách khởi tố 477 vụ án với hơn 2.700 bị can, thu giữ gần 600kg ma túy các loại cùng súng, lựu đạn. Dòng tiền giao dịch của toàn bộ mạng lưới được xác định lên tới gần 29.000 tỷ đồng.
           </p>
 
@@ -706,8 +706,8 @@ export const Chapter3TacticalMap: React.FC = () => {
             </div>
           </div>
 
-          <p className="font-body-regular italic text-[#1B1B1F] text-justify leading-relaxed text-sm sm:text-base mt-8 max-w-5xl">
-            "Trong khi phần lớn án tử hình đến từ các nhánh mua bán và phân phối, Hoàng Sỹ Thắng và Bùi Văn Ánh, hai người trực tiếp cầm hàng qua sân bay, bị kết án theo một tội danh khác là Vận chuyển trái phép chất ma túy, và chỉ nhận án chung thân."
+          <p className="font-body-regular text-[#1B1B1F] text-justify leading-relaxed text-[1.25rem] mt-8 max-w-5xl">
+            Trong khi phần lớn án tử hình đến từ các nhánh mua bán và phân phối, Hoàng Sỹ Thắng và Bùi Văn Ánh, hai người trực tiếp cầm hàng qua sân bay, bị kết án theo một tội danh khác là Vận chuyển trái phép chất ma túy, và chỉ nhận án chung thân.
           </p>
         </div>
       </div>

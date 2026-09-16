@@ -33,7 +33,7 @@ export const CoverHero: React.FC = () => {
           <h1 className="font-display-hero text-4xl sm:text-5xl md:text-[68px] leading-[1.08] text-[#1B1B1F] tracking-tight max-w-5xl">
             VN10: <span className="text-[#7a1f1f] italic">TỪ 4 TIẾP VIÊN</span> ĐẾN ĐẠI ÁN MA TÚY 227 BỊ CÁO
           </h1>
-          <p className="mt-8 font-body-lead text-lg md:text-xl text-[#4a5568] max-w-3xl leading-relaxed font-normal">
+          <p className="mt-8 font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl leading-relaxed font-normal">
             Một tuýp kem đánh răng bất thường tại Tân Sơn Nhất đã hé lộ đường dây ma túy xuyên quốc gia hoạt động hơn 3 năm, kéo theo cả showbiz Việt vào vòng lao lý.
           </p>
 
@@ -76,7 +76,7 @@ export const CoverHero: React.FC = () => {
             <span className="material-symbols-outlined text-[18px]">arrow_downward</span>
           </a>
           <div className="flex items-center gap-2 font-mono text-xs text-[#1F2A44] font-semibold">
-            <span className="w-3 h-3 bg-[#7a1f1f] inline-block" /> CHUẨN BỊ PHỔ BIẾN TÀI LIỆU TOÀN VĂN
+           
           </div>
         </div>
       </div>

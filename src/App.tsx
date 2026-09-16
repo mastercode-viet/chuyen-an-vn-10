@@ -11,6 +11,7 @@ import { Chapter2LegalDefense } from './components/Chapter2LegalDefense';
 import { Chapter3TacticalMap } from './components/Chapter3TacticalMap';
 import { Chapter4Showbiz } from './components/Chapter4Showbiz';
 import { Chapter5CourtExpansion } from './components/Chapter5CourtExpansion';
+import { Chapter6Verdict } from './components/Chapter6Verdict';
 import { Chapter7Conclusion } from './components/Chapter7Conclusion';
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
         <Chapter3TacticalMap />
         <Chapter4Showbiz />
         <Chapter5CourtExpansion />
+        <Chapter6Verdict />
         <Chapter7Conclusion />
       </main>
     </div>
