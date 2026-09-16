@@ -1,4 +1,5 @@
 import React from 'react';
+import { useActiveChapter } from '../hooks/useActiveChapter';
 
 interface CaseFile {
   id: number;
@@ -29,6 +30,8 @@ const CASE_FILES: CaseFile[] = [
 ];
 
 export const Chapter6Verdict: React.FC = () => {
+  const isActive = useActiveChapter(6);
+
   return (
     <section
       id="chuong-6-ban-an"
@@ -39,7 +42,9 @@ export const Chapter6Verdict: React.FC = () => {
           <span className="font-mono inline-block px-3 py-1 bg-[#ECE8DF] border border-[#1B1B1F] text-[#1F2A44] text-[11px] font-bold uppercase tracking-widest mb-4">
             PHÁN QUYẾT TÒA ÁN // ĐẠI ÁN VN10
           </span>
-          <h2 className="font-title-editorial text-[#7A1F1F] text-center text-4xl sm:text-5xl font-bold uppercase tracking-wide mb-4 border-b-2 border-[#1B1B1F] pb-4">
+          <h2 className={`font-title-editorial text-center text-4xl sm:text-5xl font-bold uppercase tracking-wide mb-4 border-b-2 border-[#1B1B1F] pb-4 transition-all duration-300 ${
+            isActive ? 'text-[#7A1F1F] drop-shadow-lg' : 'text-[#1B1B1F]'
+          }`}>
             Chương 6 - Bản án (3/9/2026)
           </h2>
           <p className="text-justify sm:text-center text-[1.25rem] leading-relaxed max-w-3xl mx-auto">

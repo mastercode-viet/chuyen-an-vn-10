@@ -1,5 +1,9 @@
 import React from 'react';
 import { ShowbizCase } from '../types';
+import { useActiveChapter } from '../hooks/useActiveChapter';
+import chidan from '../assets/chidan.png';
+import antay from '../assets/antay.png';
+import phuong from '../assets/phuong.png';
 
 const SHOWBIZ_CASES: ShowbizCase[] = [
   {
@@ -12,6 +16,7 @@ const SHOWBIZ_CASES: ShowbizCase[] = [
     location: 'Căn hộ chung cư tại Quận Tân Bình, TP.HCM',
     date: '11/2024',
     consequence: 'Bị bắt quả tang khi đang cùng bạn bè tụ tập sử dụng ma túy',
+    image: chidan,
   },
   {
     id: 'antay',
@@ -23,10 +28,11 @@ const SHOWBIZ_CASES: ShowbizCase[] = [
     location: 'Căn hộ tại TP Thủ Đức, TP.HCM',
     date: '11/2024',
     consequence: 'Xét nghiệm dương tính với chất ma túy, thu giữ tang vật tại nơi ở',
+    image: antay,
   },
   {
     id: 'trucphuong',
-    name: 'Nguyễn Đỗ Trúc Phương',
+    name: 'Nguyễn Đỗ Trúc Phương và Hải Anh',
     alias: '"Cô tiên từ thiện"',
     year: '1994',
     role: 'Nhân vật hoạt động thiện nguyện mạng xã hội',
@@ -34,21 +40,13 @@ const SHOWBIZ_CASES: ShowbizCase[] = [
     location: 'Chung cư cao cấp tại TP.HCM',
     date: '11/2024',
     consequence: 'Vỡ mộng hình tượng thiện nguyện mạng xã hội, gây chấn động dư luận',
-  },
-  {
-    id: 'tudiem',
-    name: 'Mạng lưới cung ứng VIP',
-    alias: 'Tụ điểm giải trí & Khách VIP',
-    year: '2023 - 2024',
-    role: 'Các quán bar, lounge, căn hộ dịch vụ cao cấp',
-    crime: 'Mua bán lẻ, chứa chấp và tổ chức bay lắc',
-    location: 'TP.HCM, Bình Dương và các tỉnh lân cận',
-    date: 'Toàn tuyến',
-    consequence: 'Bóc gỡ hàng chục ổ nhóm cung cấp hàng cho người nổi tiếng và giới trẻ',
+    image: phuong,
   },
 ];
 
 export const Chapter4Showbiz: React.FC = () => {
+  const isActive = useActiveChapter(4);
+
   return (
     <section id="chuong-4" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
       <div className="max-w-7xl mx-auto px-6">
@@ -60,48 +58,70 @@ export const Chapter4Showbiz: React.FC = () => {
             ĐIỂM NÓNG DƯ LUẬN // VĂN HÓA THẦN TƯỢNG VỠ MỘNG
           </span>
         </div>
-        <h2 className="font-headline-lg text-4xl md:text-5xl text-[#7a1f1f] font-bold tracking-tight mb-4">
+        <h2 className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 transition-all duration-300 ${
+          isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
+        }`}>
           Chương 4: Nhánh rẽ Showbiz &amp; Sự sa ngã của người nổi tiếng
         </h2>
         <p className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-12">
           Khi đường dây bị bóc tách tận gốc, danh sách khách hàng VIP và mắt xích tổ chức sử dụng trái phép ma túy đã để lộ những cái tên đình đám trên mạng xã hội và làng giải trí.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="showbiz-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="showbiz-grid">
           {SHOWBIZ_CASES.map((item) => (
             <div
               key={item.id}
-              className="bg-white p-6 border border-[#E0DDD5] border-l-4 border-l-[#7a1f1f] hover:border-[#1B1B1F] transition-all flex flex-col justify-between"
+              className="group relative aspect-[3/4] overflow-hidden bg-[#1B1B1F] border border-[#E0DDD5] border-l-4 border-l-[#7a1f1f] cursor-pointer"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-2 py-0.5 bg-red-100 text-red-900 font-mono text-[11px] font-bold">
-                    ĐÃ BẮT TẠM GIAM
-                  </span>
-                  <span className="font-mono text-xs text-gray-500">{item.date}</span>
-                </div>
-                <h3 className="font-title-editorial text-2xl font-bold text-[#1B1B1F] mb-1">
+              {/* Ảnh nền */}
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+              {/* Nhãn góc trên */}
+              <div className="absolute top-0 left-0 right-0 flex items-center justify-between p-4 z-10">
+                <span className="px-2 py-0.5 bg-red-900/90 text-white font-mono text-[11px] font-bold">
+                  ĐÃ BẮT TẠM GIAM
+                </span>
+                <span className="font-mono text-xs text-white/80">{item.date}</span>
+              </div>
+
+              {/* Tên + alias luôn hiện ở dưới */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                <h3 className="font-title-editorial text-2xl font-bold text-white mb-1">
                   {item.name}
                 </h3>
-                <p className="font-mono text-xs text-[#7a1f1f] font-semibold mb-4">
+                <p className="font-mono text-xs text-[#f0a0a0] font-semibold">
                   ({item.alias} {item.year !== '2023 - 2024' ? `- Sinh năm ${item.year}` : ''})
                 </p>
-                <div className="space-y-2 mb-6 text-xs text-[#1F2A44]">
-                  <p>
-                    <strong className="text-[#1B1B1F]">Tội danh:</strong> {item.crime}.
-                  </p>
-                  <p>
-                    <strong className="text-[#1B1B1F]">Địa điểm:</strong> {item.location}.
-                  </p>
-                  {item.consequence && (
+
+                {/* Chi tiết chỉ hiện khi hover */}
+                <div className="max-h-0 group-hover:max-h-96 opacity-0 group-hover:opacity-100 overflow-hidden transition-all duration-500 ease-out">
+                  <div className="space-y-2 mt-4 pt-4 border-t border-dashed border-white/30 text-xs text-white/90">
                     <p>
-                      <strong className="text-[#1B1B1F]">Hệ quả:</strong> {item.consequence}.
+                      <strong className="text-white">Vai trò:</strong> {item.role}.
                     </p>
-                  )}
+                    <p>
+                      <strong className="text-white">Tội danh:</strong> {item.crime}.
+                    </p>
+                    <p>
+                      <strong className="text-white">Địa điểm:</strong> {item.location}.
+                    </p>
+                    {item.consequence && (
+                      <p>
+                        <strong className="text-white">Hệ quả:</strong> {item.consequence}.
+                      </p>
+                    )}
+                  </div>
+                  <div className="pt-3 mt-3 border-t border-dashed border-white/20 font-mono text-[10px] text-white/60 uppercase tracking-wider">
+                    HỒ SƠ KHÁM XÉT // TAND &amp; CÔNG AN TP.HCM
+                  </div>
                 </div>
-              </div>
-              <div className="pt-3 border-t border-dashed border-[#E0DDD5] font-mono text-[10px] text-gray-500 uppercase tracking-wider">
-                HỒ SƠ KHÁM XÉT // TAND &amp; CÔNG AN TP.HCM
               </div>
             </div>
           ))}

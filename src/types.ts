@@ -59,4 +59,5 @@ export interface ShowbizCase {
   location: string;
   date: string;
   consequence?: string;
+  image?: string;
 }

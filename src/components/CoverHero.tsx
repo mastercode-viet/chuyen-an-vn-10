@@ -1,5 +1,5 @@
 import React from 'react';
-
+import img from '../assets/img.png';
 export const CoverHero: React.FC = () => {
   return (
     <section
@@ -30,6 +30,7 @@ export const CoverHero: React.FC = () => {
           <div className="inline-block mb-4 px-3 py-1 bg-[#ECE8DF] border border-[#D5D0C5] text-[#1F2A44] font-mono text-[11px] uppercase tracking-widest font-bold">
             Báo cáo điều tra chuyên sâu độc quyền
           </div>
+          <img src={img} alt="" className="relative mb-10 w-full h-full md:h-[600px] overflow-hidden  bg-gray-900" />
           <h1 className="font-display-hero text-4xl sm:text-5xl md:text-[68px] leading-[1.08] text-[#1B1B1F] tracking-tight max-w-5xl">
             VN10: <span className="text-[#7a1f1f] italic">TỪ 4 TIẾP VIÊN</span> ĐẾN ĐẠI ÁN MA TÚY 227 BỊ CÁO
           </h1>

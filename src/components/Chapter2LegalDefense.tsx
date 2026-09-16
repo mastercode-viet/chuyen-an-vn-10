@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LegalArgument } from '../types';
 import ld4 from '../assets/ld4.png';
+import { useActiveChapter } from '../hooks/useActiveChapter';
 
 const ARGUMENTS: LegalArgument[] = [
   {
@@ -83,6 +84,7 @@ const ARGUMENTS: LegalArgument[] = [
 export const Chapter2LegalDefense: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(1);
   const currentArg = ARGUMENTS.find((a) => a.id === activeTab) || ARGUMENTS[0];
+  const isActive = useActiveChapter(2);
 
   return (
     <section id="chuong-2" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
@@ -96,7 +98,9 @@ export const Chapter2LegalDefense: React.FC = () => {
             HỒ SƠ TỐ TỤNG &amp; CĂN CỨ ĐIỀU TRA ĐỘC QUYỀN
           </span>
         </div>
-        <h2 className="font-headline-lg text-4xl md:text-5xl text-[#7a1f1f] font-bold tracking-tight mb-3">
+        <h2 className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-3 transition-all duration-300 ${
+          isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
+        }`}>
           Chương 2: Những căn cứ pháp lý &amp; chứng cứ chứng minh vô can của 4 tiếp viên
         </h2>
         <p className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-4xl mb-8">

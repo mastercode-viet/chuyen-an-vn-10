@@ -1,6 +1,9 @@
 import React from 'react';
+import { useActiveChapter } from '../hooks/useActiveChapter';
 
 export const Chapter7Conclusion: React.FC = () => {
+  const isActive = useActiveChapter(7);
+
   return (
     <section
       id="chuong-7-ket-luan"
@@ -12,7 +15,9 @@ export const Chapter7Conclusion: React.FC = () => {
           <div className="inline-block mb-3 px-3 py-1 bg-[#ECE8DF] border border-[#D5D0C5] text-[#1F2A44] font-mono text-[11px] uppercase tracking-widest font-bold">
             TỔNG KẾT BẢN ÁN LỊCH SỬ // ĐẠI ÁN VN10
           </div>
-          <h2 className="font-headline-lg font-bold text-4xl sm:text-5xl text-[#7A1F1F] tracking-wide uppercase mb-6">
+          <h2 className={`font-headline-lg font-bold text-4xl sm:text-5xl tracking-wide uppercase mb-6 transition-all duration-300 ${
+            isActive ? 'text-[#7A1F1F] drop-shadow-lg' : 'text-[#1B1B1F]'
+          }`}>
             CHƯƠNG 7 - KẾT: NGUYÊN TẮC XÉT XỬ
           </h2>
           <p className="text-[#1B1B1F] text-justify sm:text-center text-[1.25rem] leading-relaxed font-normal">

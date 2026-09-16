@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { DeathPenaltyDefendant, ShipmentData } from '../types';
-
+import vn from '../assets/vn.png';
+import phap from '../assets/phap.png';
+import { useActiveChapter } from '../hooks/useActiveChapter';
 const SHIPMENTS: ShipmentData[] = [
   {
     id: 1,
@@ -117,6 +119,7 @@ const DEFENDANTS_11: DeathPenaltyDefendant[] = [
 export const Chapter3TacticalMap: React.FC = () => {
   const [stage, setStage] = useState<number>(1);
   const [hoveredShipment, setHoveredShipment] = useState<number | null>(null);
+  const isActive = useActiveChapter(3);
 
   const stageCaptions: Record<number, string> = {
     1: 'Trạng thái 1: Khởi điểm - Nguồn cung từ Pháp và điểm đến Việt Nam (Hà Danh Nậm chỉ đạo từ xa).',
@@ -137,7 +140,9 @@ export const Chapter3TacticalMap: React.FC = () => {
             SƠ ĐỒ TỔNG HỢP &amp; DÒNG CHẢY HÀNG CẤM
           </span>
         </div>
-        <h2 className="font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 text-[#1B1B1F]">
+        <h2 className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 transition-all duration-300 ${
+          isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
+        }`}>
           Chương 3: Lộ diện đường dây tội phạm xuyên quốc gia
         </h2>
         <p className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-10">
@@ -202,7 +207,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                   type="button"
                   onClick={() => setStage(btn.id)}
                   className={`py-2.5 px-3 border-r border-[#1B1B1F] text-left font-bold transition-colors cursor-pointer ${
-                    active ? 'bg-[#1F2A44] text-white' : 'bg-white text-[#1B1B1F] hover:bg-[#ECE8DF]'
+                    active ? 'bg-[#7a1f1f] text-white' : 'bg-white text-[#1B1B1F] hover:bg-[#ECE8DF]'
                   }`}
                 >
                   {btn.name}
@@ -226,7 +231,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                         NGUỒN CUNG: PHÁP
                       </div>
                       <img
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZrocJC7MTmNeoEnNMFMpbJbPsNujVcbliBSvCMVlC4NUA4nSFcQFvAqKLnmtKOm301EY5mjAzU-knmT-5fdmymPBJeVHIPSCGilQyDsrWCHVF_3nMyLuXI1vwkyc-QZmOT9nUoa77W72tW_KuNPkU0IRPLPUI2v6cnu0M0_7bKltD2b-QHZK3KVvE2VCtLLtKQMKGZhhoBxdh0mV2J9O9CyFz7icc5B3RXBHaAzWbPiOYMhw7vrD2ZlRQ14lhPG_0h_I"
+                        src={phap}
                         alt="Bản đồ Pháp"
                         className="w-full h-auto object-contain select-none"
                         style={{ mixBlendMode: 'multiply' }}
@@ -261,7 +266,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                         ĐIỂM ĐẾN: VIỆT NAM
                       </div>
                       <img
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBClZGfv9BWjfViWerjbN1x49wAjToMqSkNxG7TWC57ZrnChOXPe1i0Co0e4B9ivCpCsSnl5ZR-CxkykcpN7st0nWA7-PTnu27ENtvbm6l_c4m6XMnYc9q_9TeM5hKGPNrDLOFqS3qklNH0NyuxrTj7EU2ZrLPT-LcX_zb_N7losrXi7Co-H46WVCgDBxPMZ8xMVlbyWFAMQNUFFdwbVMONHfZg7wXUH-siJevuDbSjozBb23n3o_0WhpJx7uIMkRtNGio"
+                        src={vn}
                         alt="Bản đồ Việt Nam"
                         className="w-full h-full object-contain select-none"
                         style={{ mixBlendMode: 'multiply' }}
@@ -278,8 +283,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                         PHÁP (PARIS - CDG)
                       </div>
                       <img
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlIolYud7BGBRdyjStii5lsnAePEWoHZf9UhOHd4v7tqZcWQ5uBK1tga0-22pk6GibcZ-EJ_pGYhBpFcn8Tq4Tn95X5rdQ7rw9LdX-QagES8QVhcQiSA7Ml5TVdKb3zetovrihGBm9ID35EWBrOr-cZZ1s2F94dIlAwhBcpblVvxvr1N4UCJhIQvKY1J0Rc5xLdFjHJust-sTXRAy53-N0Oj-FSqZR_fH8nLn-iIowFKHqAQ-MV-GXJ2BqD4hBbhVi9YI"
-                        alt="Bản đồ Pháp"
+                        src={phap}
                         className="w-full h-auto object-contain select-none"
                         style={{ mixBlendMode: 'multiply' }}
                       />
@@ -318,7 +322,7 @@ export const Chapter3TacticalMap: React.FC = () => {
 
                     <div className="absolute right-4 md:right-8 top-4 w-52 md:w-64 h-[470px] flex flex-col items-center z-10">
                       <img
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRlZ5cW2SaCm0jGdtnf3hJ1P5aepDtLrgIQebjeo90DZXiGsXYcH0KP5hSaWuHx0EwpZHTweTAJK6uOb7eCM63wFBX_qukjhz4XKHOT7OdGlQf_FeCY7n12cP9Eh5ltIiOd8L1jx2A6oHlVSvYkmNAhaJ3CC96l9Tb5uxGloLUIX3DVlwhIS8dmGvmOPqX-vHohwr8lq-bnKaS_PQKAOrYtDvykBq3IUhWnAToDVEn5KHBqGQROHuk1_XsUunKJAw5Vmg"
+                        src={vn}
                         alt="Bản đồ Việt Nam"
                         className="w-full h-full object-contain select-none"
                         style={{ mixBlendMode: 'multiply' }}
@@ -362,7 +366,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                       <div className="relative w-[480px] h-[480px] flex items-center justify-center">
                         <img
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMC6K-AEXSUA-3F6FgOeeBkH1REC3fqEVUSXZ60vugXPpg_CoARqKHGDsfZ4fZwnlNFj6bDke6cqxcifRkaen_P8rrjNTDLCGcrbiNVjCv_oIERLh7JyKckKFf90y-Jr0ElJSFND0Uj-UVQbznEjE1eVpqjZhBe_HDd1MsqGjjCVwOy51i1TW2afqUVnPYsOscYBAP8fAGfv6SIAChTcRzz9o-YhewXvF8frRgI6Eef-EcQOfq9Ei1CtkveoDGdW7e3YE"
+                          src={vn}
                           alt="Bản đồ Việt Nam Zoom 1.8x"
                           className="w-full h-full object-contain select-none"
                           style={{

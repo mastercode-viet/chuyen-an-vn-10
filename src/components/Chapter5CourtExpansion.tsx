@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useActiveChapter } from '../hooks/useActiveChapter';
 
 export const Chapter5CourtExpansion: React.FC = () => {
   const [step, setStep] = useState<number>(1);
+  const isActive = useActiveChapter(5);
 
   // Generate 135 icons for network grid
   const networkIcons = Array.from({ length: 135 }, (_, i) => {
@@ -22,7 +24,9 @@ export const Chapter5CourtExpansion: React.FC = () => {
         <span className="font-mono text-xs uppercase tracking-widest text-[#7A1F1F] font-bold">
           MỤC LỤC // ĐẠI ÁN QUY MÔ &amp; TƯ PHÁP TOÀN CẢNH
         </span>
-        <h2 className="font-headline-lg text-4xl sm:text-5xl font-bold text-[#1B1B1F] mt-1">
+        <h2 className={`font-headline-lg text-4xl sm:text-5xl font-bold mt-1 transition-all duration-300 ${
+          isActive ? 'text-[#7a1f1f] drop-shadow-lg' :'text-[#1B1B1F]'
+        }`}>
           CHƯƠNG 5: ĐẠI ÁN MỞ RỘNG VÀ CON SỐ 227
         </h2>
         <p className="font-sans text-[1.25rem] text-[#1B1B1F]/80 max-w-3xl mt-1">
