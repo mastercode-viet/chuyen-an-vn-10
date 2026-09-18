@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useActiveChapter } from '../hooks/useActiveChapter';
+import { fadeUp, viewportOnce, easeOut, hoverScaleSm, tapScaleSm } from '../lib/motion';
 
 export const Chapter5CourtExpansion: React.FC = () => {
   const [step, setStep] = useState<number>(1);
@@ -20,11 +22,18 @@ export const Chapter5CourtExpansion: React.FC = () => {
       className="w-full my-12 py-10 px-6 border-t-2 border-b-2 border-[#1B1B1F] bg-[#F9F7F1] flex flex-col"
       style={{ minHeight: '850px', position: 'relative' }}
     >
-      <div className="max-w-[1200px] mx-auto w-full mb-6">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+        variants={fadeUp}
+        transition={easeOut}
+        className="max-w-[1200px] mx-auto w-full mb-6"
+      >
         <span className="font-mono text-xs uppercase tracking-widest text-[#7A1F1F] font-bold">
           MỤC LỤC // ĐẠI ÁN QUY MÔ &amp; TƯ PHÁP TOÀN CẢNH
         </span>
-        <h2 className={`font-headline-lg text-4xl sm:text-5xl font-bold mt-1 transition-all duration-300 ${
+        <h2 className={`font-headline-lg text-4xl sm:text-5xl font-bold mt-1 transition-colors duration-300 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' :'text-[#1B1B1F]'
         }`}>
           CHƯƠNG 5: ĐẠI ÁN MỞ RỘNG VÀ CON SỐ 227
@@ -32,7 +41,7 @@ export const Chapter5CourtExpansion: React.FC = () => {
         <p className="font-sans text-[1.25rem] text-[#1B1B1F]/80 max-w-3xl mt-1">
           Từ 4 nữ tiếp viên hàng không tại sân bay Tân Sơn Nhất, chuyên án VN10 đã mở rộng quy mô chưa từng có trong lịch sử tư pháp, bóc gỡ mạng lưới xuyên quốc gia với 227 bị cáo đưa ra xét xử trong 20 vụ án trọng điểm.
         </p>
-      </div>
+      </motion.div>
 
       <div className="max-w-[1200px] mx-auto w-full flex flex-col">
         {/* KHỐI ĐỒ HỌA TRÊN (~480px) */}
@@ -129,47 +138,70 @@ export const Chapter5CourtExpansion: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
             {/* Vùng hiển thị văn bản theo từng bước */}
             <div className="flex-1">
-              {step === 1 && (
-                <article className="space-y-3">
-                  <div className="font-mono text-xs font-bold text-[#7A1F1F] uppercase tracking-widest">
-                    BƯỚC 01 // KHỞI PHÁT
-                  </div>
-                  <h3 className="font-title-editorial font-bold text-3xl text-[#1B1B1F]">
-                    Một dấu vết, nhiều mắt xích
-                  </h3>
-                  <p className="font-sans text-[#1B1B1F] text-[1.25rem] leading-relaxed text-justify">
-                    Ngày 16/3/2023, từ dấu hiệu của 4 nữ tiếp viên hàng không trên chuyến bay VN10 từ Pháp về HCM, lực lượng chức năng kiểm tra 327 tuýp kem đánh răng và phát hiện 157 tuýp chứa ma túy. Tổng khối lượng ma túy thu giữ hơn 11 kg, bao gồm Ketamine và Cocain. Từ manh mối này, cơ quan điều tra xác lập chuyên án VN10, lần theo người gửi, nhận, vận chuyển, phân chia và tiêu thụ ma túy. Những mắt xích phía sau dần được bóc tách. Vụ việc không đơn giản là một chuyến vận chuyển đơn lẻ mà liên quan đến nhiều đường dây cùng các nhánh phạm tội khác nhau.
-                  </p>
-                </article>
-              )}
+              <AnimatePresence mode="wait">
+                {step === 1 && (
+                  <motion.article
+                    key="step-1"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="space-y-3"
+                  >
+                    <div className="font-mono text-xs font-bold text-[#7A1F1F] uppercase tracking-widest">
+                      BƯỚC 01 // KHỞI PHÁT
+                    </div>
+                    <h3 className="font-title-editorial font-bold text-3xl text-[#1B1B1F]">
+                      Một dấu vết, nhiều mắt xích
+                    </h3>
+                    <p className="font-sans text-[#1B1B1F] text-[1.25rem] leading-relaxed text-justify">
+                      Ngày 16/3/2023, từ dấu hiệu của 4 nữ tiếp viên hàng không trên chuyến bay VN10 từ Pháp về HCM, lực lượng chức năng kiểm tra 327 tuýp kem đánh răng và phát hiện 157 tuýp chứa ma túy. Tổng khối lượng ma túy thu giữ hơn 11 kg, bao gồm Ketamine và Cocain. Từ manh mối này, cơ quan điều tra xác lập chuyên án VN10, lần theo người gửi, nhận, vận chuyển, phân chia và tiêu thụ ma túy. Những mắt xích phía sau dần được bóc tách. Vụ việc không đơn giản là một chuyến vận chuyển đơn lẻ mà liên quan đến nhiều đường dây cùng các nhánh phạm tội khác nhau.
+                    </p>
+                  </motion.article>
+                )}
 
-              {step === 2 && (
-                <article className="space-y-3">
-                  <div className="font-mono text-xs font-bold text-[#7A1F1F] uppercase tracking-widest">
-                    BƯỚC 02 // BÓC TÁCH MẠNG LƯỚI
-                  </div>
-                  <h3 className="font-title-editorial font-bold text-3xl text-[#1B1B1F]">
-                    Hàng trăm đối tượng liên quan và thực hiện mạng lưới
-                  </h3>
-                  <p className="font-sans text-[#1B1B1F] text-[1.25rem] leading-relaxed text-justify">
-                    Theo kết quả điều tra, trước đó đường dây do Hà Danh Nậm (quê Nghệ An) cầm đầu đã tổ chức 7 chuyến vận chuyển ma túy từ Pháp về Việt Nam. Ma túy được ngụy trang dưới nhiều hình thức hàng hóa. Các chuyến hàng về đến Việt Nam được chuyển đến một đầu mối tại Đồng Nai do Hoàng Sỹ Thắng tiếp nhận, phân chia và chỉ đạo Bùi Văn Ánh giao hàng cho các đầu mối tiêu thụ tại TP.HCM và Bình Dương. Ở quy mô rộng hơn, hồ sơ vụ án cho thấy đường dây được tổ chức thành nhiều nhánh, sử dụng nhiều phương thức để che giấu hoạt động phạm tội. Đáng chú ý, các đối tượng còn sử dụng ứng dụng nhắn tin có tính bảo mật cao, tài khoản ngân hàng không chính chủ và nhiều hình thức ngụy trang hàng hóa để che giấu danh tính, giao dịch và dòng tiền. Sau quá trình truy xét và phá án, cơ quan chức năng xác định đường dây liên quan đến hơn 2.700 bị can trong 477 vụ án, với tổng dòng tiền giao dịch được xác định lên tới gần 29.000 tỷ đồng. Trong phạm vi chuyên án VN10 được đưa ra xét xử, có 227 bị cáo thuộc 20 vụ án.
-                  </p>
-                </article>
-              )}
+                {step === 2 && (
+                  <motion.article
+                    key="step-2"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="space-y-3"
+                  >
+                    <div className="font-mono text-xs font-bold text-[#7A1F1F] uppercase tracking-widest">
+                      BƯỚC 02 // BÓC TÁCH MẠNG LƯỚI
+                    </div>
+                    <h3 className="font-title-editorial font-bold text-3xl text-[#1B1B1F]">
+                      Hàng trăm đối tượng liên quan và thực hiện mạng lưới
+                    </h3>
+                    <p className="font-sans text-[#1B1B1F] text-[1.25rem] leading-relaxed text-justify">
+                      Theo kết quả điều tra, trước đó đường dây do Hà Danh Nậm (quê Nghệ An) cầm đầu đã tổ chức 7 chuyến vận chuyển ma túy từ Pháp về Việt Nam. Ma túy được ngụy trang dưới nhiều hình thức hàng hóa. Các chuyến hàng về đến Việt Nam được chuyển đến một đầu mối tại Đồng Nai do Hoàng Sỹ Thắng tiếp nhận, phân chia và chỉ đạo Bùi Văn Ánh giao hàng cho các đầu mối tiêu thụ tại TP.HCM và Bình Dương. Ở quy mô rộng hơn, hồ sơ vụ án cho thấy đường dây được tổ chức thành nhiều nhánh, sử dụng nhiều phương thức để che giấu hoạt động phạm tội. Đáng chú ý, các đối tượng còn sử dụng ứng dụng nhắn tin có tính bảo mật cao, tài khoản ngân hàng không chính chủ và nhiều hình thức ngụy trang hàng hóa để che giấu danh tính, giao dịch và dòng tiền. Sau quá trình truy xét và phá án, cơ quan chức năng xác định đường dây liên quan đến hơn 2.700 bị can trong 477 vụ án, với tổng dòng tiền giao dịch được xác định lên tới gần 29.000 tỷ đồng. Trong phạm vi chuyên án VN10 được đưa ra xét xử, có 227 bị cáo thuộc 20 vụ án.
+                    </p>
+                  </motion.article>
+                )}
 
-              {step === 3 && (
-                <article className="space-y-3">
-                  <div className="font-mono text-xs font-bold text-[#7A1F1F] uppercase tracking-widest">
-                    BƯỚC 03 // BẢN ÁN TỐI HẬU
-                  </div>
-                  <h3 className="font-title-editorial font-bold text-3xl text-[#7A1F1F]">
-                    Phán quyết
-                  </h3>
-                  <p className="font-sans text-[#1B1B1F] text-[1.25rem] leading-relaxed text-justify">
-                    Sau 17 ngày xét xử và nghị án kể từ ngày 17/8/2026, Tòa án Nhân dân Thành Phố Hồ Chí Minh tuyên án 227 bị cáo trong 20 vụ án thuộc chuyên án VN10 vào ngày 3/9/2026. Hội đồng xét xử đã phân hóa vai trò, mức độ tham gia và tình tiết từng bị cáo. Mức án trải rộng từ án treo, các mức tù có thời hạn cho tới tù chung thân và nặng nhất là tử hình.
-                  </p>
-                </article>
-              )}
+                {step === 3 && (
+                  <motion.article
+                    key="step-3"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="space-y-3"
+                  >
+                    <div className="font-mono text-xs font-bold text-[#7A1F1F] uppercase tracking-widest">
+                      BƯỚC 03 // BẢN ÁN TỐI HẬU
+                    </div>
+                    <h3 className="font-title-editorial font-bold text-3xl text-[#7A1F1F]">
+                      Phán quyết
+                    </h3>
+                    <p className="font-sans text-[#1B1B1F] text-[1.25rem] leading-relaxed text-justify">
+                      Sau 17 ngày xét xử và nghị án kể từ ngày 17/8/2026, Tòa án Nhân dân Thành Phố Hồ Chí Minh tuyên án 227 bị cáo trong 20 vụ án thuộc chuyên án VN10 vào ngày 3/9/2026. Hội đồng xét xử đã phân hóa vai trò, mức độ tham gia và tình tiết từng bị cáo. Mức án trải rộng từ án treo, các mức tù có thời hạn cho tới tù chung thân và nặng nhất là tử hình.
+                    </p>
+                  </motion.article>
+                )}
+              </AnimatePresence>
             </div>
 
             {/* Khối nút điều khiển và Status bên phải */}
@@ -184,23 +216,27 @@ export const Chapter5CourtExpansion: React.FC = () => {
               </div>
 
               {step === 1 && (
-                <button
+                <motion.button
                   type="button"
                   onClick={() => setStep(2)}
+                  whileHover={hoverScaleSm}
+                  whileTap={tapScaleSm}
                   className="w-full bg-[#1F2A44] hover:opacity-95 text-white font-sans text-xs uppercase tracking-widest font-bold py-3.5 px-6 border border-[#1B1B1F] transition-all text-center cursor-pointer"
                 >
                   Mở rộng điều tra →
-                </button>
+                </motion.button>
               )}
 
               {step === 2 && (
-                <button
+                <motion.button
                   type="button"
                   onClick={() => setStep(3)}
+                  whileHover={hoverScaleSm}
+                  whileTap={tapScaleSm}
                   className="w-full bg-[#7A1F1F] hover:opacity-95 text-white font-sans text-xs uppercase tracking-widest font-bold py-3.5 px-6 border border-[#1B1B1F] transition-all text-center cursor-pointer"
                 >
                   Xem phán quyết cuối cùng →
-                </button>
+                </motion.button>
               )}
 
               {step === 3 && (
@@ -214,13 +250,15 @@ export const Chapter5CourtExpansion: React.FC = () => {
               )}
 
               {step > 1 && (
-                <button
+                <motion.button
                   type="button"
                   onClick={() => setStep(1)}
+                  whileHover={hoverScaleSm}
+                  whileTap={tapScaleSm}
                   className="w-full bg-transparent hover:bg-[#ECE8DF] text-[#1B1B1F] font-mono text-xs uppercase tracking-wider py-2 px-4 border border-[#1B1B1F] transition-colors text-center font-bold cursor-pointer"
                 >
                   Xem lại từ đầu ↺
-                </button>
+                </motion.button>
               )}
             </div>
           </div>

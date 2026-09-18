@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { useActiveChapter } from '../hooks/useActiveChapter';
+import { fadeUp, staggerContainer, viewportOnce, easeOut } from '../lib/motion';
 
 interface CaseFile {
   id: number;
@@ -38,11 +40,18 @@ export const Chapter6Verdict: React.FC = () => {
       className="w-full py-20 px-6 border-t-2 border-b-2 border-[#1B1B1F] bg-[#F9F7F1] text-[#1B1B1F]"
     >
       <div className="max-w-5xl mx-auto w-full">
-        <div className="text-center mb-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="text-center mb-8"
+        >
           <span className="font-mono inline-block px-3 py-1 bg-[#ECE8DF] border border-[#1B1B1F] text-[#1F2A44] text-[11px] font-bold uppercase tracking-widest mb-4">
             PHÁN QUYẾT TÒA ÁN // ĐẠI ÁN VN10
           </span>
-          <h2 className={`font-title-editorial text-center text-4xl sm:text-5xl font-bold uppercase tracking-wide mb-4 border-b-2 border-[#1B1B1F] pb-4 transition-all duration-300 ${
+          <h2 className={`font-title-editorial text-center text-4xl sm:text-5xl font-bold uppercase tracking-wide mb-4 border-b-2 border-[#1B1B1F] pb-4 transition-colors duration-300 ${
             isActive ? 'text-[#7A1F1F] drop-shadow-lg' : 'text-[#1B1B1F]'
           }`}>
             Chương 6 - Bản án (3/9/2026)
@@ -50,7 +59,7 @@ export const Chapter6Verdict: React.FC = () => {
           <p className="text-justify sm:text-center text-[1.25rem] leading-relaxed max-w-3xl mx-auto">
             Ngày 3/9/2026, Tòa án nhân dân TP.HCM tuyên án đối với 227 bị cáo trong vụ án ma túy VN10. Các bị cáo bị xét xử về nhiều tội danh, trong đó có mua bán, vận chuyển, tàng trữ và tổ chức sử dụng trái phép chất ma túy.
           </p>
-        </div>
+        </motion.div>
 
         <div className="max-w-3xl mx-auto mb-10 flex flex-col gap-4 leading-relaxed text-justify">
           <p className="text-[1.25rem]">
@@ -76,14 +85,24 @@ export const Chapter6Verdict: React.FC = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 max-w-3xl mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer}
+          className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 max-w-3xl mx-auto"
+        >
           {CASE_FILES.map((item) => (
-            <a
+            <motion.a
               key={item.id}
               href={item.url || undefined}
               target="_blank"
               rel="noopener noreferrer"
               aria-disabled={!item.url}
+              variants={fadeUp}
+              transition={easeOut}
+              whileHover={item.url ? { scale: 1.04 } : undefined}
+              whileTap={item.url ? { scale: 0.96 } : undefined}
               className={`font-mono text-center text-[13px] font-semibold uppercase tracking-wide py-5 px-2.5 border border-[#1B1B1F] transition-colors ${
                 item.url
                   ? 'text-[#1B1B1F] hover:bg-[#7A1F1F] hover:text-white hover:border-[#7A1F1F] cursor-pointer'
@@ -91,9 +110,9 @@ export const Chapter6Verdict: React.FC = () => {
               }`}
             >
               Vụ án số {item.id}
-            </a>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

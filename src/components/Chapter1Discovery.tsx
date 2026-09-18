@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { useActiveChapter } from '../hooks/useActiveChapter';
+import { fadeUp, viewportOnce, easeOut } from '../lib/motion';
 
 export const Chapter1Discovery: React.FC = () => {
   const isActive = useActiveChapter(1);
@@ -7,23 +9,43 @@ export const Chapter1Discovery: React.FC = () => {
   return (
     <section id="chuong-1" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-3 mb-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="flex items-center gap-3 mb-4"
+        >
           <span className="font-mono text-xs text-[#7a1f1f] px-2 py-0.5 bg-red-100 uppercase tracking-wider font-semibold">
             MỤC LỤC: 01/07
           </span>
           <span className="font-mono text-xs text-gray-600 font-medium">
             BIÊN BẢN HIỆN TRƯỜNG // HẢI QUAN TÂN SƠN NHẤT
           </span>
-        </div>
-        <h2 className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-8 transition-all duration-300 ${
+        </motion.div>
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-8 transition-colors duration-300 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
         }`}>
           Chương 1: Phát hiện
-        </h2>
+        </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
           {/* Visual X-ray Screen */}
-          <div className="lg:col-span-8 bg-white p-4 border border-[#1B1B1F]">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={fadeUp}
+            transition={easeOut}
+            className="lg:col-span-8 bg-white p-4 border border-[#1B1B1F]"
+          >
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E0DDD5] text-xs font-mono">
               <span className="text-[#7a1f1f] font-semibold flex items-center gap-2">
                 <span className="w-2 h-2 bg-red-600 inline-block animate-pulse" /> HỒ SƠ TANG VẬT
@@ -64,10 +86,17 @@ export const Chapter1Discovery: React.FC = () => {
               <span>Dữ liệu bàn giao: Chi cục Hải quan cửa khẩu SBQT Tân Sơn Nhất</span>
               <span className="text-[#7a1f1f] font-semibold">TRẠNG THÁI: TẠM GIỮ KHẨN CẤP</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Text report excerpt */}
-          <div className="lg:col-span-4 bg-white p-6 border border-[#E0DDD5] border-l-4 border-l-[#7a1f1f]">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={fadeUp}
+            transition={{ ...easeOut, delay: 0.15 }}
+            className="lg:col-span-4 bg-white p-6 border border-[#E0DDD5] border-l-4 border-l-[#7a1f1f]"
+          >
             <div className="font-mono text-xs text-[#7a1f1f] uppercase tracking-widest mb-3 font-semibold">
               TRÍCH LỤC BIÊN BẢN SỰ CỐ
             </div>
@@ -88,7 +117,7 @@ export const Chapter1Discovery: React.FC = () => {
                 <span className="font-bold text-[#1B1B1F]">Sân bay CDG (Paris)</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

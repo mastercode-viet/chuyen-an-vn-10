@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ShowbizCase } from '../types';
 import { useActiveChapter } from '../hooks/useActiveChapter';
+import { fadeUp, staggerContainer, viewportOnce, easeOut } from '../lib/motion';
 import chidan from '../assets/chidan.png';
 import antay from '../assets/antay.png';
 import phuong from '../assets/phuong.png';
@@ -50,27 +52,58 @@ export const Chapter4Showbiz: React.FC = () => {
   return (
     <section id="chuong-4" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-3 mb-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="flex items-center gap-3 mb-4"
+        >
           <span className="font-mono text-xs text-[#7a1f1f] px-2 py-0.5 bg-red-100 uppercase tracking-wider font-semibold">
             MỤC LỤC: 04/07
           </span>
           <span className="font-mono text-xs text-gray-600 font-medium">
             ĐIỂM NÓNG DƯ LUẬN // VĂN HÓA THẦN TƯỢNG VỠ MỘNG
           </span>
-        </div>
-        <h2 className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 transition-all duration-300 ${
+        </motion.div>
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 transition-colors duration-300 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
         }`}>
           Chương 4: Nhánh rẽ Showbiz &amp; Sự sa ngã của người nổi tiếng
-        </h2>
-        <p className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-12">
+        </motion.h2>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={{ ...easeOut, delay: 0.1 }}
+          className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-12"
+        >
           Khi đường dây bị bóc tách tận gốc, danh sách khách hàng VIP và mắt xích tổ chức sử dụng trái phép ma túy đã để lộ những cái tên đình đám trên mạng xã hội và làng giải trí.
-        </p>
+        </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="showbiz-grid">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="showbiz-grid"
+        >
           {SHOWBIZ_CASES.map((item) => (
-            <div
+            <motion.div
               key={item.id}
+              variants={fadeUp}
+              transition={easeOut}
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.98 }}
               className="group relative aspect-[3/4] overflow-hidden bg-[#1B1B1F] border border-[#E0DDD5] border-l-4 border-l-[#7a1f1f] cursor-pointer"
             >
               {/* Ảnh nền */}
@@ -93,7 +126,7 @@ export const Chapter4Showbiz: React.FC = () => {
 
               {/* Tên + alias luôn hiện ở dưới */}
               <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
-                <h3 className="font-title-editorial text-2xl font-bold text-white mb-1">
+                <h3 className="font-title-editorial text-2xl font-bold  text-white mb-1  ">
                   {item.name}
                 </h3>
                 <p className="font-mono text-xs text-[#f0a0a0] font-semibold">
@@ -123,9 +156,9 @@ export const Chapter4Showbiz: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

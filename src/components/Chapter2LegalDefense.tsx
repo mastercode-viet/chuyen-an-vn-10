@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { LegalArgument } from '../types';
 import ld4 from '../assets/ld4.png';
 import { useActiveChapter } from '../hooks/useActiveChapter';
+import { fadeUp, viewportOnce, easeOut, hoverScaleSm, tapScaleSm } from '../lib/motion';
 
 const ARGUMENTS: LegalArgument[] = [
   {
@@ -90,33 +92,67 @@ export const Chapter2LegalDefense: React.FC = () => {
     <section id="chuong-2" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="flex items-center gap-3 mb-4"
+        >
           <span className="font-mono text-xs text-[#7a1f1f] px-2 py-0.5 bg-red-100 uppercase tracking-wider font-semibold">
             MỤC LỤC: 02/07
           </span>
           <span className="font-mono text-xs text-gray-600 font-medium">
             HỒ SƠ TỐ TỤNG &amp; CĂN CỨ ĐIỀU TRA ĐỘC QUYỀN
           </span>
-        </div>
-        <h2 className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-3 transition-all duration-300 ${
+        </motion.div>
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-3 transition-colors duration-300 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
         }`}>
           Chương 2: Những căn cứ pháp lý &amp; chứng cứ chứng minh vô can của 4 tiếp viên
-        </h2>
-        <p className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-4xl mb-8">
+        </motion.h2>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={{ ...easeOut, delay: 0.1 }}
+          className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-4xl mb-8"
+        >
           Hệ thống 4 luận điểm mang tính quyết định được Cơ quan Cảnh sát điều tra Công an TP.HCM và Viện Kiểm sát đối chiếu chặt chẽ theo quy định Bộ luật Hình sự, bảo toàn nguyên tắc thượng tôn pháp luật: "Không làm oan người vô tội".
-        </p>
+        </motion.p>
 
         {/* 2-Column Split Box */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 border border-[#1B1B1F] bg-[#FFFFFF]">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={{ ...easeOut, delay: 0.15 }}
+          className="grid grid-cols-1 lg:grid-cols-2 border border-[#1B1B1F] bg-[#FFFFFF]"
+        >
           {/* Left: Image & Evidence Dossier Card */}
           <div className="p-6 border-b lg:border-b-0 lg:border-r border-[#1B1B1F] flex flex-col justify-between bg-white">
             <div className="relative w-full aspect-[4/3] border border-[#1B1B1F] bg-gray-100 overflow-hidden">
-              <img
-                src={currentArg.imageSrc}
-                alt={currentArg.imageAlt}
-                className="w-full h-full object-cover transition-opacity duration-200"
-              />
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentArg.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  src={currentArg.imageSrc}
+                  alt={currentArg.imageAlt}
+                  className="w-full h-full object-cover"
+                />
+              </AnimatePresence>
               <div className="absolute bottom-0 inset-x-0 bg-[#1B1B1F] text-white p-3 font-mono text-xs">
                 <span className="px-2 py-0.5 bg-[#7a1f1f] text-[10px] font-bold uppercase tracking-wider inline-block mb-1">
                   {currentArg.badge}
@@ -126,7 +162,7 @@ export const Chapter2LegalDefense: React.FC = () => {
             </div>
             <div className="mt-4 flex flex-wrap items-center justify-between text-xs font-mono text-gray-600 border-t border-[#E0DDD5] pt-3">
               <span className="flex items-center gap-1.5 font-semibold text-[#1B1B1F]">
-                
+
               </span>
               <span className="text-[#7a1f1f] font-bold">
                 LUẬN ĐIỂM 0{activeTab}/04
@@ -142,10 +178,12 @@ export const Chapter2LegalDefense: React.FC = () => {
                 {ARGUMENTS.map((arg) => {
                   const isActive = arg.id === activeTab;
                   return (
-                    <button
+                    <motion.button
                       key={arg.id}
                       type="button"
                       onClick={() => setActiveTab(arg.id)}
+                      whileHover={hoverScaleSm}
+                      whileTap={tapScaleSm}
                       className={`py-2.5 px-3 border border-[#1B1B1F] text-left text-xs font-mono font-bold transition-colors cursor-pointer ${
                         isActive
                           ? 'bg-[#7A1F1F] text-white'
@@ -153,42 +191,51 @@ export const Chapter2LegalDefense: React.FC = () => {
                       }`}
                     >
                       {arg.tag}
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
 
               {/* Dynamic Argument Content */}
-              <article className="space-y-4">
-                <div className="border-l-4 border-l-[#7a1f1f] pl-4 py-1">
-                  <span className="px-2.5 py-0.5 bg-red-100 text-[#7a1f1f] font-mono text-xs uppercase tracking-wider font-bold mb-2 inline-block">
-                    {currentArg.category}
-                  </span>
-                  <h3 className="font-title-editorial text-3xl font-bold text-[#7a1f1f] mb-2">
-                    {currentArg.title}
-                  </h3>
-                </div>
-                <p className="font-body-regular text-[#1B1B1F] text-[1.25rem] leading-relaxed text-justify">
-                  {currentArg.description}
-                </p>
+              <AnimatePresence mode="wait">
+                <motion.article
+                  key={currentArg.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="space-y-4"
+                >
+                  <div className="border-l-4 border-l-[#7a1f1f] pl-4 py-1">
+                    <span className="px-2.5 py-0.5 bg-red-100 text-[#7a1f1f] font-mono text-xs uppercase tracking-wider font-bold mb-2 inline-block">
+                      {currentArg.category}
+                    </span>
+                    <h3 className="font-title-editorial text-3xl font-bold text-[#7a1f1f] mb-2">
+                      {currentArg.title}
+                    </h3>
+                  </div>
+                  <p className="font-body-regular text-[#1B1B1F] text-[1.25rem] leading-relaxed text-justify">
+                    {currentArg.description}
+                  </p>
 
-                {/* Specs Box */}
-                <div className="p-4 bg-white border border-[#1B1B1F] font-mono text-xs space-y-2 text-[#1F2A44]">
-                  {currentArg.specs.map((spec, i) => (
-                    <div
-                      key={i}
-                      className={`flex justify-between ${
-                        i < currentArg.specs.length - 1 ? 'border-b border-[#E0DDD5] pb-1.5' : ''
-                      }`}
-                    >
-                      <span>{spec.label}</span>
-                      <strong className={spec.highlight ? 'text-[#7A1F1F] font-bold' : 'text-[#1B1B1F]'}>
-                        {spec.value}
-                      </strong>
-                    </div>
-                  ))}
-                </div>
-              </article>
+                  {/* Specs Box */}
+                  <div className="p-4 bg-white border border-[#1B1B1F] font-mono text-xs space-y-2 text-[#1F2A44]">
+                    {currentArg.specs.map((spec, i) => (
+                      <div
+                        key={i}
+                        className={`flex justify-between ${
+                          i < currentArg.specs.length - 1 ? 'border-b border-[#E0DDD5] pb-1.5' : ''
+                        }`}
+                      >
+                        <span>{spec.label}</span>
+                        <strong className={spec.highlight ? 'text-[#7A1F1F] font-bold' : 'text-[#1B1B1F]'}>
+                          {spec.value}
+                        </strong>
+                      </div>
+                    ))}
+                  </div>
+                </motion.article>
+              </AnimatePresence>
             </div>
 
             <div className="pt-4 border-t border-[#E0DDD5] flex justify-between items-center text-xs font-mono text-gray-600 mt-6">
@@ -196,7 +243,7 @@ export const Chapter2LegalDefense: React.FC = () => {
               <span className="font-bold text-[#1F2A44]">THƯỢNG TÔN PHÁP LUẬT</span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

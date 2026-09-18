@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { DeathPenaltyDefendant, ShipmentData } from '../types';
 import vn from '../assets/vn.png';
 import phap from '../assets/phap.png';
+import c3p1 from '../assets/c3p1.png';
 import { useActiveChapter } from '../hooks/useActiveChapter';
+import { fadeUp, staggerContainer, viewportOnce, easeOut, hoverScaleSm, tapScaleSm } from '../lib/motion';
 const SHIPMENTS: ShipmentData[] = [
   {
     id: 1,
@@ -41,7 +44,7 @@ const SHIPMENTS: ShipmentData[] = [
     date: '16/3/2023',
     label: '16/3/2023 (Bị phát hiện)',
     weight: '>11kg',
-    detail: '327 tuýp, 157 chứa ma túy',
+    detail: 'ma túy gồm Ketamine và MDMA',
     heightPercent: 90,
     isFlagged: true,
   },
@@ -132,25 +135,72 @@ export const Chapter3TacticalMap: React.FC = () => {
     <section id="chuong-3" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="flex items-center gap-3 mb-4"
+        >
           <span className="font-mono text-xs text-[#7a1f1f] bg-red-100 px-2 py-0.5 uppercase tracking-wider font-semibold">
             MỤC LỤC: 03/07
           </span>
           <span className="font-mono text-xs text-[#1F2A44] font-semibold">
             SƠ ĐỒ TỔNG HỢP &amp; DÒNG CHẢY HÀNG CẤM
           </span>
-        </div>
-        <h2 className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 transition-all duration-300 ${
+        </motion.div>
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 transition-colors duration-300 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
         }`}>
           Chương 3: Lộ diện đường dây tội phạm xuyên quốc gia
-        </h2>
-        <p className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-10">
+        </motion.h2>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={{ ...easeOut, delay: 0.1 }}
+          className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-10"
+        >
           Từ một kiện hàng vô chủ, Cục C04 Bộ Công an phối hợp Công an TP.HCM đã lột trần cấu trúc 3 nhánh phân phối độc lập, truy quét 11 trùm đầu mối và bóc gỡ hệ thống rửa tiền quốc tế hàng trăm tỷ đồng.
-        </p>
+        </motion.p>
+
+        {/* LỆNH TRUY NÃ HÀ DANH NẬM */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="w-full max-w-xs sm:max-w-sm mb-12 mx-auto border border-[#1B1B1F] bg-white"
+        >
+          <img
+            src={c3p1}
+            alt="Lệnh truy nã Hà Danh Nậm - Viện Kiểm sát nhân dân TP.HCM"
+            className="w-full h-auto object-cover"
+          />
+          <div className="p-3 border-t border-[#1B1B1F] flex items-center justify-between font-mono text-xs">
+            <span className="text-[#7a1f1f] font-bold uppercase tracking-wider">Lệnh truy nã đặc biệt</span>
+            <span className="text-gray-500">VKSND TP.HCM</span>
+          </div>
+        </motion.div>
 
         {/* MẬT LỆNH ĐÊM 15/3 */}
-        <div className="bg-white p-6 border-l-4 border-[#7a1f1f] border border-[#1B1B1F] mb-12">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="bg-white p-6 border-l-4 border-[#7a1f1f] border border-[#1B1B1F] mb-12"
+        >
           <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E0DDD5] font-mono text-xs">
             <span className="text-[#7a1f1f] font-bold flex items-center gap-2">
               <span className="w-2 h-2 bg-red-700 inline-block" /> TƯ LIỆU ĐIỀU TRA GIẢI MẬT: 6 CHUYẾN HÀNG TRÓT LỌT
@@ -165,7 +215,7 @@ export const Chapter3TacticalMap: React.FC = () => {
               "Vào đêm 15/3/2023, chỉ vài giờ trước khi chuyến bay mang số hiệu VN10 cất cánh từ sân bay Charles de Gaulle (Paris), đối tượng môi giới trung gian đã gấp rút đóng gói 157 tuýp kem đánh răng chứa hơn 11kg ma túy vào các kiện hàng tạp hóa rồi chia đều gửi cho 4 nữ tiếp viên nhận mang hộ về TP.HCM với giá cước thỏa thuận 6,5 Euro/kg. Toàn bộ kiện hàng lập tức rơi vào diện giám sát đặc biệt khi máy bay hạ cánh."
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* BẢN ĐỒ CHIẾN THUẬT VỚI ẢNH TƯ LIỆU VÀ SVG FLOW */}
         <div className="relative w-full mb-16 bg-[#F9F7F1] border border-[#1B1B1F]" id="scrolly-map-system">
@@ -202,16 +252,17 @@ export const Chapter3TacticalMap: React.FC = () => {
             ].map((btn) => {
               const active = btn.id === stage;
               return (
-                <button
+                <motion.button
                   key={btn.id}
                   type="button"
                   onClick={() => setStage(btn.id)}
+                  whileTap={tapScaleSm}
                   className={`py-2.5 px-3 border-r border-[#1B1B1F] text-left font-bold transition-colors cursor-pointer ${
                     active ? 'bg-[#7a1f1f] text-white' : 'bg-white text-[#1B1B1F] hover:bg-[#ECE8DF]'
                   }`}
                 >
                   {btn.name}
-                </button>
+                </motion.button>
               );
             })}
           </div>
@@ -221,9 +272,17 @@ export const Chapter3TacticalMap: React.FC = () => {
             {/* Map Canvas */}
             <div className="lg:col-span-8 lg:sticky lg:top-20 z-20 border-b lg:border-b-0 lg:border-r border-[#1B1B1F] bg-[#F9F7F1]">
               <div className="relative w-full h-[480px] md:h-[550px] bg-[#F9F7F1] light-grid-canvas overflow-hidden">
+                <AnimatePresence mode="wait">
                 {/* STAGE 1: Khởi điểm */}
                 {stage === 1 && (
-                  <div className="absolute inset-0 block">
+                  <motion.div
+                    key="stage-1"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 block"
+                  >
                     {/* Pháp bên trái */}
                     <div className="group absolute left-6 md:left-10 top-10 w-48 md:w-56 cursor-pointer z-20">
                       <div className="text-xs font-mono font-bold text-[#7a1f1f] uppercase tracking-wider mb-2 flex items-center gap-1.5">
@@ -272,12 +331,19 @@ export const Chapter3TacticalMap: React.FC = () => {
                         style={{ mixBlendMode: 'multiply' }}
                       />
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* STAGE 2: Tuyến quốc tế */}
                 {stage === 2 && (
-                  <div className="absolute inset-0 block">
+                  <motion.div
+                    key="stage-2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 block"
+                  >
                     <div className="absolute left-6 md:left-10 top-10 w-44 md:w-52 z-10">
                       <div className="text-xs font-mono font-bold text-[#7a1f1f] uppercase tracking-wider mb-2">
                         PHÁP (PARIS - CDG)
@@ -348,12 +414,19 @@ export const Chapter3TacticalMap: React.FC = () => {
                         Đường thứ nhất là xách tay. Các tiếp viên hàng không và một số người Việt tại Pháp mang ma túy trong hành lý cá nhân, nhập cảnh qua Tân Sơn Nhất.
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* STAGE 3: Tuyến nội địa (Zoom 1.8x VN) */}
                 {stage === 3 && (
-                  <div className="absolute inset-0 block">
+                  <motion.div
+                    key="stage-3"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 block"
+                  >
                     <div className="absolute left-4 top-4 opacity-20 pointer-events-none w-28">
                       <img
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1newjN5H2iYYARNv4aK5dvIYe2ZKEO8TyYSz5hD1iX9j2pkSVeWO2f8UuKvwub0ef4fpKvtmGzCuu0SdDYcUEZEMr56P-Rd0F3zrzCECMcqN86itudcL-PLo3J-z_iceK_V-VPsTMjGpN7T40IMGyy4-bIv0HDSEfk8LzH_7If8dEwEOKHKIR7dNi92KupUVs_NFayL5en8AMbSRtasSMtJom179fmNIQHsy5VCB1fcxoofq7D4fegfx6tTI4zTHuG9I"
@@ -404,12 +477,19 @@ export const Chapter3TacticalMap: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* STAGE 4: Phân phối bán lẻ (Zoom 2.8x Nam Bộ) */}
                 {stage === 4 && (
-                  <div className="absolute inset-0 block">
+                  <motion.div
+                    key="stage-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 block"
+                  >
                     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                       <div className="relative w-[520px] h-[480px] flex items-center justify-center">
                         <div className="absolute inset-0 overflow-hidden">
@@ -463,8 +543,9 @@ export const Chapter3TacticalMap: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
+                </AnimatePresence>
               </div>
 
               {/* Footer Status Caption of Map */}
@@ -475,11 +556,21 @@ export const Chapter3TacticalMap: React.FC = () => {
             </div>
 
             {/* Scrollable Scrollytelling Narrative Steps Right */}
-            <div className="lg:col-span-4 p-4 md:p-6 space-y-6 bg-white">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              variants={staggerContainer}
+              className="lg:col-span-4 p-4 md:p-6 space-y-6 bg-white"
+            >
               {/* Step 1 Card */}
-              <div
+              <motion.div
+                variants={fadeUp}
+                transition={easeOut}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.99 }}
                 onClick={() => setStage(1)}
-                className={`p-5 border transition-all cursor-pointer ${
+                className={`p-5 border transition-colors cursor-pointer ${
                   stage === 1 ? 'border-[#1B1B1F] bg-[#F9F7F1]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
                 }`}
               >
@@ -496,12 +587,16 @@ export const Chapter3TacticalMap: React.FC = () => {
                 <span className="inline-block font-mono text-[10px] text-[#7a1f1f] font-semibold uppercase">
                   [Nhấp để chọn Trạng thái 1]
                 </span>
-              </div>
+              </motion.div>
 
               {/* Step 2 Card */}
-              <div
+              <motion.div
+                variants={fadeUp}
+                transition={easeOut}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.99 }}
                 onClick={() => setStage(2)}
-                className={`p-5 border transition-all cursor-pointer ${
+                className={`p-5 border transition-colors cursor-pointer ${
                   stage === 2 ? 'border-[#1B1B1F] bg-[#F9F7F1]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
                 }`}
               >
@@ -518,12 +613,16 @@ export const Chapter3TacticalMap: React.FC = () => {
                 <span className="inline-block font-mono text-[10px] text-[#1F2A44] font-semibold uppercase">
                   [Nhấp để chọn Trạng thái 2]
                 </span>
-              </div>
+              </motion.div>
 
               {/* Step 3 Card */}
-              <div
+              <motion.div
+                variants={fadeUp}
+                transition={easeOut}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.99 }}
                 onClick={() => setStage(3)}
-                className={`p-5 border transition-all cursor-pointer ${
+                className={`p-5 border transition-colors cursor-pointer ${
                   stage === 3 ? 'border-[#1B1B1F] bg-[#F9F7F1]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
                 }`}
               >
@@ -540,12 +639,16 @@ export const Chapter3TacticalMap: React.FC = () => {
                 <span className="inline-block font-mono text-[10px] text-amber-800 font-semibold uppercase">
                   [Nhấp để chọn Trạng thái 3]
                 </span>
-              </div>
+              </motion.div>
 
               {/* Step 4 Card */}
-              <div
+              <motion.div
+                variants={fadeUp}
+                transition={easeOut}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.99 }}
                 onClick={() => setStage(4)}
-                className={`p-5 border transition-all cursor-pointer ${
+                className={`p-5 border transition-colors cursor-pointer ${
                   stage === 4 ? 'border-[#1B1B1F] bg-[#F9F7F1]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
                 }`}
               >
@@ -562,13 +665,20 @@ export const Chapter3TacticalMap: React.FC = () => {
                 <span className="inline-block font-mono text-[10px] text-red-700 font-semibold uppercase">
                   [Nhấp để chọn Trạng thái 4]
                 </span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
 
         {/* BIỂU ĐỒ CỘT THỐNG KÊ MA TÚY THEO CHUYẾN */}
-        <div className="w-full mb-16 bg-white border border-[#1B1B1F] p-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="w-full mb-16 bg-white border border-[#1B1B1F] p-6"
+        >
           <div className="flex flex-wrap items-center justify-between pb-3 mb-4 border-b border-[#E0DDD5]">
             <div className="flex items-center gap-2 font-mono text-xs text-[#7a1f1f] font-bold uppercase tracking-wider">
               <span className="w-2 h-2 bg-[#7a1f1f] inline-block" /> BIỂU ĐỒ TRINH SÁT: KHỐI LƯỢNG MA TÚY THEO TỪNG CHUYẾN VẬN CHUYỂN
@@ -583,7 +693,7 @@ export const Chapter3TacticalMap: React.FC = () => {
 
           <div className="bg-[#F9F7F1] p-6 border border-[#E0DDD5]">
             <div className="h-[360px] flex items-end justify-between gap-3 sm:gap-6 border-b border-[#1B1B1F] pb-0 pt-6 px-2 sm:px-6 relative">
-              {SHIPMENTS.map((s) => {
+              {SHIPMENTS.map((s, i) => {
                 const isHovered = hoveredShipment === s.id;
                 return (
                   <div
@@ -592,14 +702,18 @@ export const Chapter3TacticalMap: React.FC = () => {
                     onMouseEnter={() => setHoveredShipment(s.id)}
                     onMouseLeave={() => setHoveredShipment(null)}
                   >
-                    <div
-                      className={`w-full max-w-[110px] border border-[#7A1F1F] cursor-pointer flex flex-col items-center justify-center p-1 text-center transition-all duration-200 ${
-                        isHovered ? 'bg-[#7a1f1f]/20 border-[#7A1F1F] scale-102' : 'bg-transparent hover:bg-[#7a1f1f]/5'
+                    <motion.div
+                      initial={{ height: 0 }}
+                      whileInView={{ height: `${s.heightPercent}%` }}
+                      viewport={viewportOnce}
+                      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
+                      whileHover={{ scale: 1.02 }}
+                      className={`w-full max-w-[110px] border border-[#7A1F1F] bg-[#7a1f1f] cursor-pointer flex flex-col items-center justify-center p-1 text-center transition-colors duration-200 ${
+                        isHovered ? 'bg-[#5b060c]' : ''
                       }`}
-                      style={{ height: `${s.heightPercent}%` }}
                     >
                       <span
-                        className={`font-mono text-[10px] sm:text-[11px] leading-tight text-[#7a1f1f] font-bold transition-opacity duration-200 ${
+                        className={`font-mono text-[10px] sm:text-[11px] leading-tight text-white font-bold transition-opacity duration-200 ${
                           isHovered ? 'opacity-100' : 'opacity-80 sm:opacity-0 hover:opacity-100'
                         }`}
                       >
@@ -607,7 +721,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                         <br />
                         <span className="text-[9px] font-normal">{s.detail}</span>
                       </span>
-                    </div>
+                    </motion.div>
                   </div>
                 );
               })}
@@ -622,13 +736,23 @@ export const Chapter3TacticalMap: React.FC = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* KHỐI VĂN BẢN HAI CỘT TELEGRAM */}
-        <div className="w-full mb-12 bg-[#F9F7F1]">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer}
+          className="w-full mb-12 bg-[#F9F7F1]"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Cột 1 */}
-            <div className="p-6 bg-[#F9F7F1] border border-[#1B1B1F]">
+            <motion.div
+              variants={fadeUp}
+              transition={easeOut}
+              className="p-6 bg-[#F9F7F1] border border-[#1B1B1F]"
+            >
               <h3 className="font-title-editorial text-[#7A1F1F] text-2xl font-bold uppercase tracking-wider pb-3 mb-4 ">
                 Nhánh bán buôn qua Telegram “Tèo”
               </h3>
@@ -643,10 +767,14 @@ export const Chapter3TacticalMap: React.FC = () => {
                   Từ Hoàng, ma túy tiếp tục chảy xuống hai đầu mối bán lẻ khác. <strong>Lê Thắng Anh Tú</strong> nhiều lần mua lại của Hoàng, tổng cộng gần 32kg MDMA, đồng thời tự mua thêm ketamine để bán lại, thuê Đào Duy Phương nhận, cất giữ và giao hàng cho khách với tiền công 40 triệu đồng mỗi tháng. HĐXX xác định Tú chịu trách nhiệm hơn 35kg MDMA, hơn 14kg ketamine và hơn 11kg ma túy các loại khác. <strong>Văn Hoàng Minh</strong>, sinh năm 2000, mua 10.000 viên MDMA, tương đương khoảng 3,9kg với giá 800 triệu đồng, rồi chỉ đạo Hưng bán lại một phần, chịu trách nhiệm hơn 6kg ma túy các loại. Cả Hoàng, Tú và Minh đều bị tuyên án <strong>tử hình</strong>.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Cột 2 */}
-            <div className="p-6 bg-[#F9F7F1] border border-[#1B1B1F]">
+            <motion.div
+              variants={fadeUp}
+              transition={easeOut}
+              className="p-6 bg-[#F9F7F1] border border-[#1B1B1F]"
+            >
               <h3 className="font-title-editorial text-[#7A1F1F] text-2xl font-bold uppercase tracking-wider pb-3 mb-4 ">
                 Nhóm Telegram độc lập, và nguồn Campuchia
               </h3>
@@ -661,12 +789,19 @@ export const Chapter3TacticalMap: React.FC = () => {
                   Riêng <strong>Phạm Đức Duy</strong>, từ người sử dụng ma túy trở thành đầu mối mua bán, ba lần đặt hàng từ một người tên Hòa, danh tính chưa được công bố đầy đủ, rồi rủ thêm người tham gia cất giữ, đóng gói, giao hàng. Ngày 28/8/2023, công an bắt quả tang khi Duy chỉ đạo đồng phạm giao hàng, khám xét nơi ở thu giữ hơn 5kg ma túy các loại. Duy, cùng với Bảo, An, Quân và Khoa, đều bị tuyên án <strong>tử hình</strong>.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* ==================== TOÀN CẢNH: 11 ÁN TỬ HÌNH ==================== */}
-        <div className="w-full bg-[#F9F7F1] border border-[#1B1B1F] p-8 mb-12">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="w-full bg-[#F9F7F1] border border-[#1B1B1F] p-8 mb-12"
+        >
           <div className="flex flex-wrap items-center justify-between pb-3 mb-6 border-b border-[#1B1B1F]">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 bg-[#7A1F1F] inline-block" />
@@ -684,9 +819,21 @@ export const Chapter3TacticalMap: React.FC = () => {
 
           {/* 11 Human Silhouettes Row with Tooltips */}
           <div className="w-full py-8 my-4 border-y border-[#E0DDD5] bg-[#F9F7F1]">
-            <div className="w-full flex justify-center items-end flex-wrap gap-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              variants={staggerContainer}
+              className="w-full flex justify-center items-end flex-wrap gap-8"
+            >
               {DEFENDANTS_11.map((d) => (
-                <div key={d.id} className="person-wrapper relative cursor-pointer flex flex-col items-center group">
+                <motion.div
+                  key={d.id}
+                  variants={fadeUp}
+                  transition={easeOut}
+                  whileHover={{ scale: 1.08, y: -4 }}
+                  className="person-wrapper relative cursor-pointer flex flex-col items-center group"
+                >
                   <div className="tooltip-box absolute bottom-[80px] left-1/2 -translate-x-1/2 z-50 bg-[#1F2A44] border border-white text-white text-xs p-3 text-left w-[220px] leading-[1.4]">
                     <strong className="font-bold text-white block mb-1">Bị cáo: {d.name}</strong>
                     <span className="text-gray-200">Nhánh: {d.branch}</span>
@@ -705,14 +852,151 @@ export const Chapter3TacticalMap: React.FC = () => {
                   <span className="mt-2 font-mono text-[10px] text-gray-600 group-hover:text-[#7A1F1F] font-bold">
                     #{d.id < 10 ? `0${d.id}` : d.id}
                   </span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           <p className="font-body-regular text-[#1B1B1F] text-justify leading-relaxed text-[1.25rem] mt-8 max-w-5xl">
             Trong khi phần lớn án tử hình đến từ các nhánh mua bán và phân phối, Hoàng Sỹ Thắng và Bùi Văn Ánh, hai người trực tiếp cầm hàng qua sân bay, bị kết án theo một tội danh khác là Vận chuyển trái phép chất ma túy, và chỉ nhận án chung thân.
           </p>
+        </motion.div>
+
+        {/* ==================== NHẬN ĐỊNH CHUYÊN GIA: TS. TRẦN THANH THẢO (SCROLLYTELLING) ==================== */}
+        <div className="relative w-full bg-[#0b0f19] overflow-hidden mb-16">
+          {/* Pinned fullscreen photo background, stays fixed while the text scrolls over it */}
+          <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_YiXz7y1_itjUxatp-vQFC9OtftcdzWCvRQ9j7LIHDO-IZVAugSXeM_i9BpzyWqoHn68ESIvOe3_a9Qm5DYdVN0T_LM7YEEJSqW9zfSqukzOkCY4MhdaRkZXuFr6fgOJlFi_79c1XNfewcZ2aySFsVDis-0NooPTNhtEmGswExfrwVGVJQ08-o0kynVj1j4RUxO4A18Ue9JFRFAmrtYiY1A26d2eFVB--DQrWqnWbtPvSXJ1om-7vzEAbY55p8PR3JAo"
+              alt="Tiến sĩ Trần Thanh Thảo"
+              className="w-full h-full object-cover select-none"
+              style={{ objectPosition: 'center 25%', filter: 'brightness(0.92) contrast(1.05)', transform: 'scale(1.02)' }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(circle at 75% 45%, rgba(13,2,5,0.1) 0%, rgba(20,4,8,0.5) 65%, rgba(10,2,4,0.92) 100%), linear-gradient(to top, rgba(11,15,25,0.95) 0%, rgba(11,15,25,0.2) 50%, rgba(11,15,25,0.6) 100%)',
+              }}
+            />
+          </div>
+
+          {/* Foreground scrolling content, overlapping the pinned photo */}
+          <div className="relative z-10 -mt-[100vh]">
+            {/* Cover intro */}
+            <div className="h-[30vh] sm:h-[35vh] w-full flex flex-col justify-end pb-4 px-6 md:px-16 lg:px-24">
+              <div className="flex items-center gap-2.5 text-xs font-mono text-gray-300/80 animate-pulse">
+                <span className="w-2 h-2 rounded-full bg-red-500" />
+                <span className="tracking-widest uppercase text-[11px]">Cuộn chuột để xem phân tích của Chuyên gia</span>
+                <svg className="w-4 h-4 ml-1 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 14l-7 7m0 0l-7-7m7 7V3" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
+                </svg>
+              </div>
+            </div>
+
+            {/* Quote stage */}
+            <div className="min-h-[85vh] w-full flex items-center justify-start py-8 sm:py-14 px-6 sm:px-12 md:px-16 lg:px-24">
+              <div className="w-full max-w-2xl">
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="font-mono text-xs text-red-300 uppercase tracking-widest bg-red-950/70 border border-red-800/70 px-3 py-1 backdrop-blur-sm">
+                    QUAN ĐIỂM HỌC THUẬT &amp; THỰC TIỄN TƯ PHÁP
+                  </span>
+                  <span className="text-xs font-mono text-gray-400 hidden sm:inline">01 // 01</span>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: '-14%' }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative p-8 sm:p-11 md:p-12"
+                  style={{
+                    background: 'rgba(251, 248, 254, 0.86)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    borderWidth: '1px 1px 1px 5px',
+                    borderStyle: 'solid',
+                    borderColor: 'rgba(27,27,31,0.2) rgba(27,27,31,0.2) rgba(27,27,31,0.2) rgb(122,31,31)',
+                    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.3)',
+                  }}
+                >
+                  <div className="mb-4 -mt-2">
+                    <svg className="w-16 h-16 sm:w-20 sm:h-20 text-[#7A1F1F]" fill="currentColor" viewBox="0 0 100 100">
+                      <path d="M26.7 18.5C14.3 27.2 6.5 41.5 6.5 58.1c0 14.8 10.2 24.9 22.8 24.9 11.2 0 20.4-8.8 20.4-20.4 0-11.9-9.2-20.7-21.1-20.7-1.4 0-3 .2-4.4.7.7-9.5 7.2-20.7 15.3-26.4L26.7 18.5zm47 0C61.3 27.2 53.5 41.5 53.5 58.1c0 14.8 10.2 24.9 22.8 24.9 11.2 0 20.4-8.8 20.4-20.4 0-11.9-9.2-20.7-21.1-20.7-1.4 0-3 .2-4.4.7.7-9.5 7.2-20.7 15.3-26.4L73.7 18.5z" />
+                    </svg>
+                  </div>
+
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={staggerContainer}
+                    className="font-title-editorial font-bold text-xl sm:text-2xl md:text-[28px] leading-[1.38] tracking-tight"
+                  >
+                    <motion.p
+                      variants={fadeUp}
+                      transition={{ duration: 0.55 }}
+                      className="mb-3 text-[#7A1F1F]"
+                    >
+                      "Nếu không áp dụng mức án tử hình có thể gây hệ lụy rất lớn cho xã hội."
+                    </motion.p>
+                    <motion.p
+                      variants={fadeUp}
+                      transition={{ duration: 0.55 }}
+                      className="mb-3 text-[#1B1B1F]"
+                    >
+                      Vì khối lượng mua bán ma túy cực kỳ lớn, cực kỳ nghiêm trọng.
+                    </motion.p>
+                    <motion.p
+                      variants={fadeUp}
+                      transition={{ duration: 0.55 }}
+                      className="text-[#1F2A44]"
+                    >
+                      Thứ hai, hành vi không chỉ gây tác hại đến một địa phương mà cả nước
+                    </motion.p>
+                  </motion.div>
+
+                  <div
+                    className="mt-8 pt-5 flex flex-wrap items-center justify-between gap-2 text-xs font-mono"
+                    style={{ borderTop: '1px solid rgba(27,27,31,0.2)' }}
+                  >
+                    <span className="text-[#7A1F1F] font-bold tracking-wider">— TIẾN SĨ TRẦN THANH THẢO</span>
+                    <span className="tracking-wide" style={{ color: 'rgba(27,27,31,0.8)' }}>
+                      KHOA LUẬT HÌNH SỰ - ĐH LUẬT TP.HCM
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Editorial closing remarks */}
+            <div
+              className="min-h-[50vh] w-full flex flex-col justify-center py-20 px-6 sm:px-12 md:px-16 lg:px-24"
+              style={{ background: 'linear-gradient(to top, #000 0%, rgba(0,0,0,0.9) 40%, transparent 100%)' }}
+            >
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
+                variants={fadeUp}
+                transition={easeOut}
+                className="max-w-3xl border-l-2 border-[#7A1F1F] pl-6 md:pl-8 py-2"
+              >
+                <span className="font-mono text-xs text-gray-400 uppercase tracking-widest block mb-2">
+                  TỔNG KẾT BÁO CHÍ ĐIỀU TRA
+                </span>
+                <h2 className="font-title-editorial text-2xl sm:text-3xl text-white font-bold mb-4">
+                  Sự Thượng Tôn Của Pháp Luật &amp; Bài Học Đắt Giá
+                </h2>
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed text-justify mb-6">
+                  Lời khẳng định của các chuyên gia tội phạm học tại Đại học Luật TP.HCM đã soi rọi rõ tính tất yếu của các bản án nghiêm khắc. Khi đường dây ma túy xuyên quốc gia tìm cách xâm nhập qua cửa ngõ hàng không, phản ứng dứt khoát, khoa học và bản lĩnh của các cơ quan tiến hành tố tụng đã bảo vệ vững chắc an ninh trật tự xã hội.
+                </p>
+                <div className="font-mono text-xs text-gray-500 uppercase tracking-widest">
+                  BAN CHUYÊN ÁN VN10 // BỘ CÔNG AN - CÔNG AN TP.HCM // 2023 - 2026
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

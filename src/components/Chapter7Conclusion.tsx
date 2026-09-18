@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { useActiveChapter } from '../hooks/useActiveChapter';
+import { fadeUp, staggerContainer, viewportOnce, easeOut } from '../lib/motion';
 
 export const Chapter7Conclusion: React.FC = () => {
   const isActive = useActiveChapter(7);
@@ -11,11 +13,18 @@ export const Chapter7Conclusion: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto w-full flex flex-col items-center">
         {/* Intro Header */}
-        <div className="w-full max-w-[800px] text-center mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="w-full max-w-[800px] text-center mb-16"
+        >
           <div className="inline-block mb-3 px-3 py-1 bg-[#ECE8DF] border border-[#D5D0C5] text-[#1F2A44] font-mono text-[11px] uppercase tracking-widest font-bold">
             TỔNG KẾT BẢN ÁN LỊCH SỬ // ĐẠI ÁN VN10
           </div>
-          <h2 className={`font-headline-lg font-bold text-4xl sm:text-5xl tracking-wide uppercase mb-6 transition-all duration-300 ${
+          <h2 className={`font-headline-lg font-bold text-4xl sm:text-5xl tracking-wide uppercase mb-6 transition-colors duration-300 ${
             isActive ? 'text-[#7A1F1F] drop-shadow-lg' : 'text-[#1B1B1F]'
           }`}>
             CHƯƠNG 7 - KẾT: NGUYÊN TẮC XÉT XỬ
@@ -23,16 +32,34 @@ export const Chapter7Conclusion: React.FC = () => {
           <p className="text-[#1B1B1F] text-justify sm:text-center text-[1.25rem] leading-relaxed font-normal">
             Hành trình từ những tuýp kem đánh răng vô chủ tại Tân Sơn Nhất đến phiên tòa lịch sử với 227 bị cáo đã chính thức khép lại. Hàng trăm ngàn trang hồ sơ, hàng ngàn ngày điều tra truy xét cuối cùng cũng được đặt lên bàn cân của pháp luật. Khép lại chuyên án ma túy chấn động VN10, bản án được tuyên không chỉ là sự trừng phạt, mà còn là một bản thông điệp sắc lạnh về ranh giới của tội ác.
           </p>
-        </div>
+        </motion.div>
 
         {/* Contrast Principles Section */}
         <div className="w-full mb-16">
-          <h3 className="font-title-editorial font-bold text-2xl sm:text-3xl text-[#1B1B1F] text-center uppercase tracking-wide mb-8 border-b border-[#1B1B1F] pb-3">
+          <motion.h3
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={fadeUp}
+            transition={easeOut}
+            className="font-title-editorial font-bold text-2xl sm:text-3xl text-[#1B1B1F] text-center uppercase tracking-wide mb-8 border-b border-[#1B1B1F] pb-3"
+          >
             Lưỡi gươm cho kẻ cầm đầu, đường lùi cho người hối cải
-          </h3>
-          <div className="flex flex-col md:flex-row gap-8 w-full">
+          </motion.h3>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={staggerContainer}
+            className="flex flex-col md:flex-row gap-8 w-full"
+          >
             {/* Box 1: Strict Punishment */}
-            <div className="flex-1 bg-transparent border-2 border-[#7A1F1F] p-6 sm:p-8 flex flex-col justify-between">
+            <motion.div
+              variants={fadeUp}
+              transition={easeOut}
+              whileHover={{ y: -3 }}
+              className="flex-1 bg-transparent border-2 border-[#7A1F1F] p-6 sm:p-8 flex flex-col justify-between"
+            >
               <div>
                 <div className="flex items-center gap-2 mb-4 font-mono text-xs font-bold text-[#7A1F1F] uppercase tracking-wider">
                   <span className="w-2.5 h-2.5 bg-[#7A1F1F] inline-block" />
@@ -45,10 +72,15 @@ export const Chapter7Conclusion: React.FC = () => {
               <div className="font-mono font-bold text-xl sm:text-2xl text-[#7A1F1F] border-t border-[#7A1F1F] pt-4 tracking-tight">
                 11 ÁN TỬ HÌNH - 19 ÁN CHUNG THÂN
               </div>
-            </div>
+            </motion.div>
 
             {/* Box 2: Leniency */}
-            <div className="flex-1 bg-transparent border border-[#1B1B1F] p-6 sm:p-8 flex flex-col justify-between">
+            <motion.div
+              variants={fadeUp}
+              transition={easeOut}
+              whileHover={{ y: -3 }}
+              className="flex-1 bg-transparent border border-[#1B1B1F] p-6 sm:p-8 flex flex-col justify-between"
+            >
               <div>
                 <div className="flex items-center gap-2 mb-4 font-mono text-xs font-bold text-[#1F2A44] uppercase tracking-wider">
                   <span className="w-2.5 h-2.5 bg-[#1F2A44] inline-block" />
@@ -61,18 +93,36 @@ export const Chapter7Conclusion: React.FC = () => {
               <div className="font-mono font-semibold text-sm sm:text-base text-[#1F2A44] border-t border-[#1B1B1F] pt-4">
                 ÁP DỤNG TỐI ĐA CÁC TÌNH TIẾT GIẢM NHẸ THEO LUẬT ĐỊNH
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Attitude breakdown */}
         <div className="w-full mb-16">
-          <h3 className="font-title-editorial font-bold text-2xl sm:text-3xl text-[#1B1B1F] text-center uppercase tracking-wide mb-8 border-b border-[#1B1B1F] pb-3">
+          <motion.h3
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={fadeUp}
+            transition={easeOut}
+            className="font-title-editorial font-bold text-2xl sm:text-3xl text-[#1B1B1F] text-center uppercase tracking-wide mb-8 border-b border-[#1B1B1F] pb-3"
+          >
             Lời thú tội muộn màng và những mảnh ghép ngoan cố
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
+          </motion.h3>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full"
+          >
             {/* Attitude 01 */}
-            <div className="bg-[#F9F7F1] border border-[#1B1B1F] p-6 flex flex-col justify-between">
+            <motion.div
+              variants={fadeUp}
+              transition={easeOut}
+              whileHover={{ y: -3 }}
+              className="bg-[#F9F7F1] border border-[#1B1B1F] p-6 flex flex-col justify-between"
+            >
               <div>
                 <span className="font-mono text-[11px] font-bold text-[#1F2A44] block uppercase tracking-wider mb-2">
                   THÁI ĐỘ // 01
@@ -87,10 +137,15 @@ export const Chapter7Conclusion: React.FC = () => {
               <div className="mt-6 pt-3 border-t border-dashed border-[#1B1B1F] text-xs font-mono text-emerald-800 font-bold">
                 ✓ ĐƯỢC XEM XÉT KHOAN HỒNG
               </div>
-            </div>
+            </motion.div>
 
             {/* Attitude 02 */}
-            <div className="bg-[#1B1B1F] border border-[#1B1B1F] p-6 text-white flex flex-col justify-between">
+            <motion.div
+              variants={fadeUp}
+              transition={easeOut}
+              whileHover={{ y: -3 }}
+              className="bg-[#1B1B1F] border border-[#1B1B1F] p-6 text-white flex flex-col justify-between"
+            >
               <div>
                 <span className="font-mono text-[11px] font-bold text-red-400 block uppercase tracking-wider mb-2">
                   THÁI ĐỘ // 02
@@ -105,10 +160,15 @@ export const Chapter7Conclusion: React.FC = () => {
               <div className="mt-6 pt-3 border-t border-dashed border-gray-600 text-xs font-mono text-red-400 font-bold">
                 ✕ BÁC BỎ YÊU CẦU GIẢM NHẸ
               </div>
-            </div>
+            </motion.div>
 
             {/* Attitude 03 */}
-            <div className="bg-[#7A1F1F] border border-[#7A1F1F] p-6 text-white flex flex-col justify-between">
+            <motion.div
+              variants={fadeUp}
+              transition={easeOut}
+              whileHover={{ y: -3 }}
+              className="bg-[#7A1F1F] border border-[#7A1F1F] p-6 text-white flex flex-col justify-between"
+            >
               <div>
                 <span className="font-mono text-[11px] font-bold text-amber-200 block uppercase tracking-wider mb-2">
                   THÁI ĐỘ // 03
@@ -123,14 +183,21 @@ export const Chapter7Conclusion: React.FC = () => {
               <div className="mt-6 pt-3 border-t border-dashed border-red-300/40 text-xs font-mono text-amber-300 font-bold">
                 ⚠ PHÁT LỆNH TRUY NÃ ĐẶC BIỆT
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Footer */}
-        <div className="w-full text-center pt-8 border-t border-[#E0DDD5] font-mono text-xs text-gray-600 uppercase tracking-widest">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+          transition={easeOut}
+          className="w-full text-center pt-8 border-t border-[#E0DDD5] font-mono text-xs text-gray-600 uppercase tracking-widest"
+        >
           BAN CHUYÊN ÁN VN10 // BỘ CÔNG AN - CÔNG AN TP.HCM // 2023 - 2026
-        </div>
+        </motion.div>
       </div>
     </section>
   );
