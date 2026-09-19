@@ -9,12 +9,13 @@ export const Chapter7Conclusion: React.FC = () => {
   return (
     <section
       id="chuong-7-ket-luan"
-      className="w-full bg-[#F9F7F1] text-[#1B1B1F] py-20 px-6 border-t-2 border-b-2 border-[#1B1B1F] mt-12"
+      className="w-full bg-white text-[#1B1B1F] py-20 px-6 border-t-2 border-b-2 border-[#1B1B1F] mt-12"
     >
       <div className="max-w-5xl mx-auto w-full flex flex-col items-center">
         {/* Intro Header */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -24,12 +25,12 @@ export const Chapter7Conclusion: React.FC = () => {
           <div className="inline-block mb-3 px-3 py-1 bg-[#ECE8DF] border border-[#D5D0C5] text-[#1F2A44] font-mono text-[11px] uppercase tracking-widest font-bold">
             TỔNG KẾT BẢN ÁN LỊCH SỬ // ĐẠI ÁN VN10
           </div>
-          <h2 className={`font-headline-lg font-bold text-4xl sm:text-5xl tracking-wide uppercase mb-6 transition-colors duration-300 ${
+          <h2 className={`font-headline-lg font-bold text-4xl sm:text-5xl tracking-wide uppercase mb-6 transition-colors duration-300  ${
             isActive ? 'text-[#7A1F1F] drop-shadow-lg' : 'text-[#1B1B1F]'
           }`}>
             CHƯƠNG 7 - KẾT: NGUYÊN TẮC XÉT XỬ
           </h2>
-          <p className="text-[#1B1B1F] text-justify sm:text-center text-[1.25rem] leading-relaxed font-normal">
+          <p className="text-[#1B1B1F] text-justify sm:text-center text-[1.25rem] leading-relaxed font-normal w-full">
             Hành trình từ những tuýp kem đánh răng vô chủ tại Tân Sơn Nhất đến phiên tòa lịch sử với 227 bị cáo đã chính thức khép lại. Hàng trăm ngàn trang hồ sơ, hàng ngàn ngày điều tra truy xét cuối cùng cũng được đặt lên bàn cân của pháp luật. Khép lại chuyên án ma túy chấn động VN10, bản án được tuyên không chỉ là sự trừng phạt, mà còn là một bản thông điệp sắc lạnh về ranh giới của tội ác.
           </p>
         </motion.div>
@@ -38,6 +39,7 @@ export const Chapter7Conclusion: React.FC = () => {
         <div className="w-full mb-16">
           <motion.h3
             initial="hidden"
+            animate="hidden"
             whileInView="visible"
             viewport={viewportOnce}
             variants={fadeUp}
@@ -48,6 +50,7 @@ export const Chapter7Conclusion: React.FC = () => {
           </motion.h3>
           <motion.div
             initial="hidden"
+            animate="hidden"
             whileInView="visible"
             viewport={viewportOnce}
             variants={staggerContainer}
@@ -101,6 +104,7 @@ export const Chapter7Conclusion: React.FC = () => {
         <div className="w-full mb-16">
           <motion.h3
             initial="hidden"
+            animate="hidden"
             whileInView="visible"
             viewport={viewportOnce}
             variants={fadeUp}
@@ -111,6 +115,7 @@ export const Chapter7Conclusion: React.FC = () => {
           </motion.h3>
           <motion.div
             initial="hidden"
+            animate="hidden"
             whileInView="visible"
             viewport={viewportOnce}
             variants={staggerContainer}
@@ -121,7 +126,7 @@ export const Chapter7Conclusion: React.FC = () => {
               variants={fadeUp}
               transition={easeOut}
               whileHover={{ y: -3 }}
-              className="bg-[#F9F7F1] border border-[#1B1B1F] p-6 flex flex-col justify-between"
+              className="bg-[#fff] border border-[#1B1B1F] p-6 flex flex-col justify-between"
             >
               <div>
                 <span className="font-mono text-[11px] font-bold text-[#1F2A44] block uppercase tracking-wider mb-2">
@@ -190,6 +195,7 @@ export const Chapter7Conclusion: React.FC = () => {
         {/* Footer */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}

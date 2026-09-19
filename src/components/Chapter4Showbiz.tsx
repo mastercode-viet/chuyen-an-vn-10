@@ -50,10 +50,11 @@ export const Chapter4Showbiz: React.FC = () => {
   const isActive = useActiveChapter(4);
 
   return (
-    <section id="chuong-4" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
+    <section id="chuong-4" className="w-full py-20 bg-[#fff] border-b border-[#E0DDD5]">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -69,28 +70,31 @@ export const Chapter4Showbiz: React.FC = () => {
         </motion.div>
         <motion.h2
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
           transition={easeOut}
-          className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 transition-colors duration-300 ${
+          className={`font-headline-lg text-4xl md:text-5xl font-bold uppercase tracking-tight text-center mb-4 transition-colors duration-300 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
         }`}>
           Chương 4: Nhánh rẽ Showbiz &amp; Sự sa ngã của người nổi tiếng
         </motion.h2>
         <motion.p
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
           transition={{ ...easeOut, delay: 0.1 }}
-          className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-12"
+          className="font-body-lead text-[1.25rem] text-[#1F2A44] w-full mb-12"
         >
           Khi đường dây bị bóc tách tận gốc, danh sách khách hàng VIP và mắt xích tổ chức sử dụng trái phép ma túy đã để lộ những cái tên đình đám trên mạng xã hội và làng giải trí.
         </motion.p>
 
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}

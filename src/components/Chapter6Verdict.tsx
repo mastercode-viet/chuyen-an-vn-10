@@ -37,11 +37,12 @@ export const Chapter6Verdict: React.FC = () => {
   return (
     <section
       id="chuong-6-ban-an"
-      className="w-full py-20 px-6 border-t-2 border-b-2 border-[#1B1B1F] bg-[#F9F7F1] text-[#1B1B1F]"
+      className="w-full py-20 px-6 border-t-2 border-b-2 border-[#1B1B1F] bg-[#fff] text-[#1B1B1F]"
     >
       <div className="max-w-5xl mx-auto w-full">
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -87,6 +88,7 @@ export const Chapter6Verdict: React.FC = () => {
 
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}

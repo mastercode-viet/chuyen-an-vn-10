@@ -18,12 +18,12 @@ import { Chapter7Conclusion } from './components/Chapter7Conclusion';
 export default function App() {
   return (
     <ChapterProvider>
-      <div className="min-h-screen bg-[#F9F7F1] text-[#1B1B1F] flex flex-col antialiased">
+      <div className="min-h-screen bg-[#fff] text-[#1B1B1F] flex flex-col antialiased">
         {/* Top Fixed Reading Progress & Navigation */}
         <HeaderProgress />
 
         {/* Main Narrative Reportage */}
-        <main className="w-full pt-1 bg-[#F9F7F1]">
+        <main className="w-full pt-1 bg-[#fff]">
           <CoverHero />
           <Chapter1Discovery />
           <Chapter2LegalDefense />

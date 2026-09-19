@@ -7,7 +7,7 @@ export const CoverHero: React.FC = () => {
   return (
     <section
       id="cover"
-      className="relative w-full pt-20 pb-20 bg-[#F9F7F1] text-[#1B1B1F] border-b-2 border-[#7a1f1f]"
+      className="relative w-full pt-20 pb-20 bg-[#fff] text-[#1B1B1F] border-b-2 border-[#7a1f1f]"
     >
       <div className="relative max-w-7xl mx-auto px-6 flex flex-col justify-between min-h-[720px]">
         {/* Top Header Bar */}
@@ -64,7 +64,7 @@ export const CoverHero: React.FC = () => {
           <motion.p
             variants={fadeUp}
             transition={easeOut}
-            className="mt-8 font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl leading-relaxed font-normal"
+            className="mt-8 font-body-lead text-[1.25rem] text-[#1F2A44] w-full leading-relaxed font-normal"
           >
             Một tuýp kem đánh răng bất thường tại Tân Sơn Nhất đã hé lộ đường dây ma túy xuyên quốc gia hoạt động hơn 3 năm, kéo theo cả showbiz Việt vào vòng lao lý.
           </motion.p>

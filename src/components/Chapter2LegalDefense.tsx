@@ -89,11 +89,12 @@ export const Chapter2LegalDefense: React.FC = () => {
   const isActive = useActiveChapter(2);
 
   return (
-    <section id="chuong-2" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
+    <section id="chuong-2" className="w-full py-20 bg-[#fff] border-b border-[#E0DDD5]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -109,22 +110,24 @@ export const Chapter2LegalDefense: React.FC = () => {
         </motion.div>
         <motion.h2
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
           transition={easeOut}
-          className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-3 transition-colors duration-300 ${
+          className={`font-headline-lg text-4xl md:text-5xl font-bold uppercase tracking-tight text-center mb-3 transition-colors duration-300 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
         }`}>
           Chương 2: Những căn cứ pháp lý &amp; chứng cứ chứng minh vô can của 4 tiếp viên
         </motion.h2>
         <motion.p
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
           transition={{ ...easeOut, delay: 0.1 }}
-          className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-4xl mb-8"
+          className="font-body-lead text-[1.25rem] text-[#1F2A44] w-full mb-8"
         >
           Hệ thống 4 luận điểm mang tính quyết định được Cơ quan Cảnh sát điều tra Công an TP.HCM và Viện Kiểm sát đối chiếu chặt chẽ theo quy định Bộ luật Hình sự, bảo toàn nguyên tắc thượng tôn pháp luật: "Không làm oan người vô tội".
         </motion.p>
@@ -132,6 +135,7 @@ export const Chapter2LegalDefense: React.FC = () => {
         {/* 2-Column Split Box */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -171,7 +175,7 @@ export const Chapter2LegalDefense: React.FC = () => {
           </div>
 
           {/* Right: Interactive Tabs & Argument Content */}
-          <div className="p-6 flex flex-col justify-between bg-[#F9F7F1]">
+          <div className="p-6 flex flex-col justify-between bg-[#fff]">
             <div>
               {/* Tab Selector Buttons */}
               <div className="grid grid-cols-2 gap-2 mb-6" id="c2-tabs-btn-group">

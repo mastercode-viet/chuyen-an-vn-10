@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { DeathPenaltyDefendant, ShipmentData } from '../types';
-import vn from '../assets/vn.png';
-import phap from '../assets/phap.png';
+import vn from '../assets/v2-vn.png';
+import phap from '../assets/v2-phap.png';
 import c3p1 from '../assets/c3p1.png';
+import diagram2 from '../assets/2.png';
 import { useActiveChapter } from '../hooks/useActiveChapter';
 import { fadeUp, staggerContainer, viewportOnce, easeOut, hoverScaleSm, tapScaleSm } from '../lib/motion';
 const SHIPMENTS: ShipmentData[] = [
@@ -132,11 +133,12 @@ export const Chapter3TacticalMap: React.FC = () => {
   };
 
   return (
-    <section id="chuong-3" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
+    <section id="chuong-3" className="w-full py-20 bg-[#fff] border-b border-[#E0DDD5]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -152,22 +154,24 @@ export const Chapter3TacticalMap: React.FC = () => {
         </motion.div>
         <motion.h2
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
           transition={easeOut}
-          className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-4 transition-colors duration-300 ${
+          className={`font-headline-lg text-4xl md:text-5xl font-bold uppercase tracking-tight text-center mb-4 transition-colors duration-300 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
         }`}>
           Chương 3: Lộ diện đường dây tội phạm xuyên quốc gia
         </motion.h2>
         <motion.p
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
           transition={{ ...easeOut, delay: 0.1 }}
-          className="font-body-lead text-[1.25rem] text-[#1F2A44] max-w-3xl mb-10"
+          className="font-body-lead text-[1.25rem] text-[#1F2A44] w-full mb-10"
         >
           Từ một kiện hàng vô chủ, Cục C04 Bộ Công an phối hợp Công an TP.HCM đã lột trần cấu trúc 3 nhánh phân phối độc lập, truy quét 11 trùm đầu mối và bóc gỡ hệ thống rửa tiền quốc tế hàng trăm tỷ đồng.
         </motion.p>
@@ -175,6 +179,7 @@ export const Chapter3TacticalMap: React.FC = () => {
         {/* LỆNH TRUY NÃ HÀ DANH NẬM */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -195,6 +200,7 @@ export const Chapter3TacticalMap: React.FC = () => {
         {/* MẬT LỆNH ĐÊM 15/3 */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -211,16 +217,16 @@ export const Chapter3TacticalMap: React.FC = () => {
             <p className="text-[1.25rem]">
               Theo kết luận điều tra, trước khi bị chặn bắt tại sân bay Tân Sơn Nhất, đường dây của Hà Danh Nậm đã thực hiện trót lọt ít nhất <strong>6 chuyến vận chuyển ma túy</strong> từ Pháp về Việt Nam theo cùng phương thức xách tay và chuyển phát nhanh bưu kiện quốc tế mà không bị phát hiện.
             </p>
-            <p className="text-[1.25rem] italic text-[#1B1B1F] bg-[#F9F7F1] p-4 border border-[#E0DDD5]">
+            <p className="text-[1.25rem] italic text-[#1B1B1F]">
               "Vào đêm 15/3/2023, chỉ vài giờ trước khi chuyến bay mang số hiệu VN10 cất cánh từ sân bay Charles de Gaulle (Paris), đối tượng môi giới trung gian đã gấp rút đóng gói 157 tuýp kem đánh răng chứa hơn 11kg ma túy vào các kiện hàng tạp hóa rồi chia đều gửi cho 4 nữ tiếp viên nhận mang hộ về TP.HCM với giá cước thỏa thuận 6,5 Euro/kg. Toàn bộ kiện hàng lập tức rơi vào diện giám sát đặc biệt khi máy bay hạ cánh."
             </p>
           </div>
         </motion.div>
 
         {/* BẢN ĐỒ CHIẾN THUẬT VỚI ẢNH TƯ LIỆU VÀ SVG FLOW */}
-        <div className="relative w-full mb-16 bg-[#F9F7F1] border border-[#1B1B1F]" id="scrolly-map-system">
+        <div className="relative w-full mb-16 bg-[#fff] border border-[#1B1B1F]" id="scrolly-map-system">
           {/* Header bar with Title & Hà Danh Nậm tactical dossier */}
-          <div className="p-3 bg-[#F9F7F1] border-b border-[#1B1B1F] flex flex-wrap items-center justify-between gap-3">
+          <div className="p-3 bg-[#fff] border-b border-[#1B1B1F] flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 bg-[#7a1f1f] inline-block" />
               <span className="font-mono text-xs uppercase tracking-widest text-[#1B1B1F] font-bold">
@@ -270,8 +276,8 @@ export const Chapter3TacticalMap: React.FC = () => {
           {/* Split Map Left / Narrative Steps Right */}
           <div className="grid grid-cols-1 lg:grid-cols-12 items-start relative">
             {/* Map Canvas */}
-            <div className="lg:col-span-8 lg:sticky lg:top-20 z-20 border-b lg:border-b-0 lg:border-r border-[#1B1B1F] bg-[#F9F7F1]">
-              <div className="relative w-full h-[480px] md:h-[550px] bg-[#F9F7F1] light-grid-canvas overflow-hidden">
+            <div className="lg:col-span-8 lg:sticky lg:top-20 z-20 border-b lg:border-b-0 lg:border-r border-[#1B1B1F] bg-[#fff]">
+              <div className="relative w-full h-[480px] md:h-[550px] bg-[#fff] light-grid-canvas overflow-hidden">
                 <AnimatePresence mode="wait">
                 {/* STAGE 1: Khởi điểm */}
                 {stage === 1 && (
@@ -494,12 +500,11 @@ export const Chapter3TacticalMap: React.FC = () => {
                       <div className="relative w-[520px] h-[480px] flex items-center justify-center">
                         <div className="absolute inset-0 overflow-hidden">
                           <img
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyc0OpAlSULuX3m8aUaYqjRJwbBAFc_uvjWww8YGpj9O-nEpAzwU95XAFxdktbWaRdJrReRRAC3VDqUS_cksH8YLRZ_mEbLL02uYrbgeLJz4RHPKBapAL95CVY012P6itfQPriR--vd1ZMtk8bLH6BY6ZJDgSO_A5IV40LguitYGcUirf0PEcjjJgVmgCB5GVIr9QPj-6vmT5m5EePzzVqwDLg30SlVNwYuEdImThLKd-Zru9lXmf01H1b0T_BDkAHzLE"
-                            alt="Bản đồ Nam Bộ Zoom 2.8x"
+                            src="src/assets/v2-vn.png"
                             className="w-full h-full object-contain select-none"
                             style={{
                               mixBlendMode: 'multiply',
-                              transform: 'scale(2.8) translate(-25px, -155px)',
+                              transform: 'scale(2.2) translate(-41px, -155px)',
                             }}
                           />
                         </div>
@@ -549,7 +554,7 @@ export const Chapter3TacticalMap: React.FC = () => {
               </div>
 
               {/* Footer Status Caption of Map */}
-              <div className="p-3 bg-[#F9F7F1] border-t border-[#1B1B1F] flex flex-wrap items-center justify-between text-xs font-mono text-gray-700">
+              <div className="p-3 bg-[#fff] border-t border-[#1B1B1F] flex flex-wrap items-center justify-between text-xs font-mono text-gray-700">
                 <span className="font-medium">{stageCaptions[stage]}</span>
                 <span className="text-[#7a1f1f] font-bold">CẬP NHẬT THEO HỒ SƠ TỐ TỤNG C04</span>
               </div>
@@ -558,6 +563,7 @@ export const Chapter3TacticalMap: React.FC = () => {
             {/* Scrollable Scrollytelling Narrative Steps Right */}
             <motion.div
               initial="hidden"
+              animate="hidden"
               whileInView="visible"
               viewport={viewportOnce}
               variants={staggerContainer}
@@ -571,7 +577,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                 whileTap={{ scale: 0.99 }}
                 onClick={() => setStage(1)}
                 className={`p-5 border transition-colors cursor-pointer ${
-                  stage === 1 ? 'border-[#1B1B1F] bg-[#F9F7F1]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
+                  stage === 1 ? 'border-[#1B1B1F] bg-[#fff]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
                 }`}
               >
                 <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#D5D0C5] text-xs font-mono">
@@ -597,7 +603,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                 whileTap={{ scale: 0.99 }}
                 onClick={() => setStage(2)}
                 className={`p-5 border transition-colors cursor-pointer ${
-                  stage === 2 ? 'border-[#1B1B1F] bg-[#F9F7F1]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
+                  stage === 2 ? 'border-[#1B1B1F] bg-[#fff]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
                 }`}
               >
                 <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#E0DDD5] text-xs font-mono">
@@ -623,7 +629,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                 whileTap={{ scale: 0.99 }}
                 onClick={() => setStage(3)}
                 className={`p-5 border transition-colors cursor-pointer ${
-                  stage === 3 ? 'border-[#1B1B1F] bg-[#F9F7F1]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
+                  stage === 3 ? 'border-[#1B1B1F] bg-[#fff]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
                 }`}
               >
                 <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#E0DDD5] text-xs font-mono">
@@ -649,7 +655,7 @@ export const Chapter3TacticalMap: React.FC = () => {
                 whileTap={{ scale: 0.99 }}
                 onClick={() => setStage(4)}
                 className={`p-5 border transition-colors cursor-pointer ${
-                  stage === 4 ? 'border-[#1B1B1F] bg-[#F9F7F1]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
+                  stage === 4 ? 'border-[#1B1B1F] bg-[#fff]' : 'border-[#E0DDD5] bg-white hover:border-[#7a1f1f]'
                 }`}
               >
                 <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#E0DDD5] text-xs font-mono">
@@ -673,6 +679,7 @@ export const Chapter3TacticalMap: React.FC = () => {
         {/* BIỂU ĐỒ CỘT THỐNG KÊ MA TÚY THEO CHUYẾN */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -691,7 +698,7 @@ export const Chapter3TacticalMap: React.FC = () => {
             Chiều cao cột ~ khối lượng ma túy mỗi chuyến (kg) - Di chuột để xem chi tiết
           </div>
 
-          <div className="bg-[#F9F7F1] p-6 border border-[#E0DDD5]">
+          <div className="bg-[#fff] p-6 border border-[#E0DDD5]">
             <div className="h-[360px] flex items-end justify-between gap-3 sm:gap-6 border-b border-[#1B1B1F] pb-0 pt-6 px-2 sm:px-6 relative">
               {SHIPMENTS.map((s, i) => {
                 const isHovered = hoveredShipment === s.id;
@@ -738,69 +745,62 @@ export const Chapter3TacticalMap: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* KHỐI VĂN BẢN HAI CỘT TELEGRAM */}
+        {/* KHỐI VĂN BẢN TELEGRAM - GỘP CHUNG 1 KHUNG */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          variants={staggerContainer}
-          className="w-full mb-12 bg-[#F9F7F1]"
+          variants={fadeUp}
+          transition={easeOut}
+          className="w-full mb-12 p-6 bg-[#fff] border border-[#1B1B1F]"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Cột 1 */}
-            <motion.div
-              variants={fadeUp}
-              transition={easeOut}
-              className="p-6 bg-[#F9F7F1] border border-[#1B1B1F]"
-            >
-              <h3 className="font-title-editorial text-[#7A1F1F] text-2xl font-bold uppercase tracking-wider pb-3 mb-4 ">
-                Nhánh bán buôn qua Telegram “Tèo”
-              </h3>
-              <div className="space-y-4 font-body-regular text-[#1B1B1F] text-justify leading-relaxed">
-                <p className="text-[1.25rem]">
-                  Song song với việc tự tổ chức vận chuyển, Nậm còn dùng chính tài khoản Telegram <strong>Tèo</strong> để bán buôn ma túy, cũng lấy nguồn từ châu Âu, cho các đầu mối hoàn toàn độc lập với Thắng và Ánh. Lớn nhất trong số này là <strong>Nguyễn Huy Hoàng</strong>, sinh năm 1997. Từ ngày 23/2 đến 16/3/2023, Hoàng đặt mua 7 lô hàng từ <strong>Tèo</strong>, tổng cộng 118.600 viên MDMA, tương đương khoảng 39,8kg, rồi bán lại cho <strong>Lê Thắng Anh Tú</strong>, <strong>Văn Hoàng Minh</strong> và nhiều đầu mối khác. Ngoài nguồn từ Nậm, Hoàng còn mua riêng khoảng 5kg ketamine của <strong>Nguyễn Xuân Hiếu</strong>. Hiếu, người cũng cung cấp ketamine cho một số đầu mối khác trong đại án, bị HĐXX xác định chịu trách nhiệm hình sự tổng cộng 6,8kg ketamine và cũng nhận án <strong>tử hình</strong> dù đang bỏ trốn, bị xét xử vắng mặt.
-                </p>
-                <p className="text-[1.25rem]">
-                  Tổng cộng, Hoàng phải chịu trách nhiệm hình sự về gần 40kg MDMA và 5kg ketamine. Để vận hành khâu bán lẻ, Hoàng thuê Nguyễn Tuấn Anh nhận hàng, Huỳnh Thanh Hưng cất giữ và phân chia, còn Huỳnh Thanh Hảo trực tiếp giao hàng. Riêng Hảo được xác định đã thực hiện 500 đơn giao ma túy bán lẻ theo chỉ đạo của Hoàng, với tổng khối lượng qua tay hơn 1kg ketamine và MDMA.
-                </p>
-                <p className="text-[1.25rem]">
-                  Từ Hoàng, ma túy tiếp tục chảy xuống hai đầu mối bán lẻ khác. <strong>Lê Thắng Anh Tú</strong> nhiều lần mua lại của Hoàng, tổng cộng gần 32kg MDMA, đồng thời tự mua thêm ketamine để bán lại, thuê Đào Duy Phương nhận, cất giữ và giao hàng cho khách với tiền công 40 triệu đồng mỗi tháng. HĐXX xác định Tú chịu trách nhiệm hơn 35kg MDMA, hơn 14kg ketamine và hơn 11kg ma túy các loại khác. <strong>Văn Hoàng Minh</strong>, sinh năm 2000, mua 10.000 viên MDMA, tương đương khoảng 3,9kg với giá 800 triệu đồng, rồi chỉ đạo Hưng bán lại một phần, chịu trách nhiệm hơn 6kg ma túy các loại. Cả Hoàng, Tú và Minh đều bị tuyên án <strong>tử hình</strong>.
-                </p>
-              </div>
-            </motion.div>
+          <img
+            src={diagram2}
+            alt="Sơ đồ các nhánh khác được phát hiện và gộp chung với đại án - Sơ đồ phân phối ma túy"
+            className="w-full h-auto border border-[#1B1B1F] mb-8"
+          />
 
-            {/* Cột 2 */}
-            <motion.div
-              variants={fadeUp}
-              transition={easeOut}
-              className="p-6 bg-[#F9F7F1] border border-[#1B1B1F]"
-            >
-              <h3 className="font-title-editorial text-[#7A1F1F] text-2xl font-bold uppercase tracking-wider pb-3 mb-4 ">
-                Nhóm Telegram độc lập, và nguồn Campuchia
-              </h3>
-              <div className="space-y-4 font-body-regular text-[#1B1B1F] text-justify leading-relaxed">
-                <p className="text-[1.25rem]">
-                  Bên cạnh hệ thống của Nậm, cơ quan điều tra còn phát hiện hai nhánh khác cùng bị gộp vào đại án. Nhóm của <strong>Lê Nguyễn Gia Bảo</strong> và <strong>Trần Kiến An</strong> lập các nhóm kín trên Telegram để chỉ đạo đồng phạm nhận, cất giữ và giao ma túy. HĐXX đánh giá An không giữ vai trò thứ yếu mà cùng Bảo trực tiếp tổ chức, điều hành hoạt động mua bán. Ngày 13/11/2022, Quân bán cho Bảo 4kg và bán cho An 1kg, cùng giá 427 triệu đồng mỗi kg. Bảo bị xác định chịu trách nhiệm hơn 11,2kg ketamine, hơn 5,1kg thuốc lắc và hơn 17kg ma túy các loại khác.
-                </p>
-                <p className="text-[1.25rem]">
-                  Nhánh còn lại do <strong>Phạm Anh Khoa</strong> cầm đầu, người nhiều lần trực tiếp sang Campuchia mua ma túy đưa về Việt Nam. Khoa chịu trách nhiệm hơn 7kg ma túy tổng hợp, trong đó một phần bán cho chính <strong>Lê Thắng Anh Tú</strong>.
-                </p>
-                <p className="text-[1.25rem]">
-                  Riêng <strong>Phạm Đức Duy</strong>, từ người sử dụng ma túy trở thành đầu mối mua bán, ba lần đặt hàng từ một người tên Hòa, danh tính chưa được công bố đầy đủ, rồi rủ thêm người tham gia cất giữ, đóng gói, giao hàng. Ngày 28/8/2023, công an bắt quả tang khi Duy chỉ đạo đồng phạm giao hàng, khám xét nơi ở thu giữ hơn 5kg ma túy các loại. Duy, cùng với Bảo, An, Quân và Khoa, đều bị tuyên án <strong>tử hình</strong>.
-                </p>
-              </div>
-            </motion.div>
+          <h3 className="font-title-editorial text-[#7A1F1F] text-2xl font-bold uppercase tracking-wider pb-3 mb-4 ">
+            Nhánh bán buôn qua Telegram “Tèo”
+          </h3>
+          <div className="space-y-4 font-body-regular text-[#1B1B1F] text-justify leading-relaxed">
+            <p className="text-[1.25rem]">
+              Song song với việc tự tổ chức vận chuyển, Nậm còn dùng chính tài khoản Telegram <strong>Tèo</strong> để bán buôn ma túy, cũng lấy nguồn từ châu Âu, cho các đầu mối hoàn toàn độc lập với Thắng và Ánh. Lớn nhất trong số này là <strong>Nguyễn Huy Hoàng</strong>, sinh năm 1997. Từ ngày 23/2 đến 16/3/2023, Hoàng đặt mua 7 lô hàng từ <strong>Tèo</strong>, tổng cộng 118.600 viên MDMA, tương đương khoảng 39,8kg, rồi bán lại cho <strong>Lê Thắng Anh Tú</strong>, <strong>Văn Hoàng Minh</strong> và nhiều đầu mối khác. Ngoài nguồn từ Nậm, Hoàng còn mua riêng khoảng 5kg ketamine của <strong>Nguyễn Xuân Hiếu</strong>. Hiếu, người cũng cung cấp ketamine cho một số đầu mối khác trong đại án, bị HĐXX xác định chịu trách nhiệm hình sự tổng cộng 6,8kg ketamine và cũng nhận án <strong>tử hình</strong> dù đang bỏ trốn, bị xét xử vắng mặt.
+            </p>
+            <p className="text-[1.25rem]">
+              Tổng cộng, Hoàng phải chịu trách nhiệm hình sự về gần 40kg MDMA và 5kg ketamine. Để vận hành khâu bán lẻ, Hoàng thuê Nguyễn Tuấn Anh nhận hàng, Huỳnh Thanh Hưng cất giữ và phân chia, còn Huỳnh Thanh Hảo trực tiếp giao hàng. Riêng Hảo được xác định đã thực hiện 500 đơn giao ma túy bán lẻ theo chỉ đạo của Hoàng, với tổng khối lượng qua tay hơn 1kg ketamine và MDMA.
+            </p>
+            <p className="text-[1.25rem]">
+              Từ Hoàng, ma túy tiếp tục chảy xuống hai đầu mối bán lẻ khác. <strong>Lê Thắng Anh Tú</strong> nhiều lần mua lại của Hoàng, tổng cộng gần 32kg MDMA, đồng thời tự mua thêm ketamine để bán lại, thuê Đào Duy Phương nhận, cất giữ và giao hàng cho khách với tiền công 40 triệu đồng mỗi tháng. HĐXX xác định Tú chịu trách nhiệm hơn 35kg MDMA, hơn 14kg ketamine và hơn 11kg ma túy các loại khác. <strong>Văn Hoàng Minh</strong>, sinh năm 2000, mua 10.000 viên MDMA, tương đương khoảng 3,9kg với giá 800 triệu đồng, rồi chỉ đạo Hưng bán lại một phần, chịu trách nhiệm hơn 6kg ma túy các loại. Cả Hoàng, Tú và Minh đều bị tuyên án <strong>tử hình</strong>.
+            </p>
+          </div>
+
+          <h3 className="font-title-editorial text-[#7A1F1F] text-2xl font-bold uppercase tracking-wider pb-3 mb-4 mt-8">
+            Nhóm Telegram độc lập, và nguồn Campuchia
+          </h3>
+          <div className="space-y-4 font-body-regular text-[#1B1B1F] text-justify leading-relaxed">
+            <p className="text-[1.25rem]">
+              Bên cạnh hệ thống của Nậm, cơ quan điều tra còn phát hiện hai nhánh khác cùng bị gộp vào đại án. Nhóm của <strong>Lê Nguyễn Gia Bảo</strong> và <strong>Trần Kiến An</strong> lập các nhóm kín trên Telegram để chỉ đạo đồng phạm nhận, cất giữ và giao ma túy. HĐXX đánh giá An không giữ vai trò thứ yếu mà cùng Bảo trực tiếp tổ chức, điều hành hoạt động mua bán. Ngày 13/11/2022, Quân bán cho Bảo 4kg và bán cho An 1kg, cùng giá 427 triệu đồng mỗi kg. Bảo bị xác định chịu trách nhiệm hơn 11,2kg ketamine, hơn 5,1kg thuốc lắc và hơn 17kg ma túy các loại khác.
+            </p>
+            <p className="text-[1.25rem]">
+              Nhánh còn lại do <strong>Phạm Anh Khoa</strong> cầm đầu, người nhiều lần trực tiếp sang Campuchia mua ma túy đưa về Việt Nam. Khoa chịu trách nhiệm hơn 7kg ma túy tổng hợp, trong đó một phần bán cho chính <strong>Lê Thắng Anh Tú</strong>.
+            </p>
+            <p className="text-[1.25rem]">
+              Riêng <strong>Phạm Đức Duy</strong>, từ người sử dụng ma túy trở thành đầu mối mua bán, ba lần đặt hàng từ một người tên Hòa, danh tính chưa được công bố đầy đủ, rồi rủ thêm người tham gia cất giữ, đóng gói, giao hàng. Ngày 28/8/2023, công an bắt quả tang khi Duy chỉ đạo đồng phạm giao hàng, khám xét nơi ở thu giữ hơn 5kg ma túy các loại. Duy, cùng với Bảo, An, Quân và Khoa, đều bị tuyên án <strong>tử hình</strong>.
+            </p>
           </div>
         </motion.div>
 
         {/* ==================== TOÀN CẢNH: 11 ÁN TỬ HÌNH ==================== */}
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
           transition={easeOut}
-          className="w-full bg-[#F9F7F1] border border-[#1B1B1F] p-8 mb-12"
+          className="w-full bg-[#fff] border border-[#1B1B1F] p-8 mb-12"
         >
           <div className="flex flex-wrap items-center justify-between pb-3 mb-6 border-b border-[#1B1B1F]">
             <div className="flex items-center gap-2">
@@ -818,9 +818,10 @@ export const Chapter3TacticalMap: React.FC = () => {
           </p>
 
           {/* 11 Human Silhouettes Row with Tooltips */}
-          <div className="w-full py-8 my-4 border-y border-[#E0DDD5] bg-[#F9F7F1]">
+          <div className="w-full py-8 my-4 border-y border-[#E0DDD5] bg-[#fff]">
             <motion.div
               initial="hidden"
+              animate="hidden"
               whileInView="visible"
               viewport={viewportOnce}
               variants={staggerContainer}
@@ -906,8 +907,9 @@ export const Chapter3TacticalMap: React.FC = () => {
 
                 <motion.div
                   initial={{ opacity: 0, x: '-14%' }}
+                  animate={{ opacity: 0, x: '-14%' }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: false, amount: 0.2 }}
                   transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
                   className="relative p-8 sm:p-11 md:p-12"
                   style={{
@@ -928,8 +930,9 @@ export const Chapter3TacticalMap: React.FC = () => {
 
                   <motion.div
                     initial="hidden"
+                    animate="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     variants={staggerContainer}
                     className="font-title-editorial font-bold text-xl sm:text-2xl md:text-[28px] leading-[1.38] tracking-tight"
                   >
@@ -976,6 +979,7 @@ export const Chapter3TacticalMap: React.FC = () => {
             >
               <motion.div
                 initial="hidden"
+                animate="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
                 variants={fadeUp}

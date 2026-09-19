@@ -19,11 +19,12 @@ export const Chapter5CourtExpansion: React.FC = () => {
   return (
     <section
       id="chapter-5-interactive"
-      className="w-full my-12 py-10 px-6 border-t-2 border-b-2 border-[#1B1B1F] bg-[#F9F7F1] flex flex-col"
+      className="w-full my-12 py-10 px-6 border-t-2 border-b-2 border-[#1B1B1F] bg-[#fff] flex flex-col"
       style={{ minHeight: '850px', position: 'relative' }}
     >
       <motion.div
         initial="hidden"
+        animate="hidden"
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
@@ -33,12 +34,12 @@ export const Chapter5CourtExpansion: React.FC = () => {
         <span className="font-mono text-xs uppercase tracking-widest text-[#7A1F1F] font-bold">
           MỤC LỤC // ĐẠI ÁN QUY MÔ &amp; TƯ PHÁP TOÀN CẢNH
         </span>
-        <h2 className={`font-headline-lg text-4xl sm:text-5xl font-bold mt-1 transition-colors duration-300 ${
+        <h2 className={`font-headline-lg text-4xl sm:text-5xl font-bold text-center mt-1 transition-colors duration-300 mb-3 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' :'text-[#1B1B1F]'
         }`}>
           CHƯƠNG 5: ĐẠI ÁN MỞ RỘNG VÀ CON SỐ 227
         </h2>
-        <p className="font-sans text-[1.25rem] text-[#1B1B1F]/80 max-w-3xl mt-1">
+        <p className="font-sans text-[1.25rem] text-[#1B1B1F]/80 w-full mt-1">
           Từ 4 nữ tiếp viên hàng không tại sân bay Tân Sơn Nhất, chuyên án VN10 đã mở rộng quy mô chưa từng có trong lịch sử tư pháp, bóc gỡ mạng lưới xuyên quốc gia với 227 bị cáo đưa ra xét xử trong 20 vụ án trọng điểm.
         </p>
       </motion.div>
@@ -65,7 +66,7 @@ export const Chapter5CourtExpansion: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="mt-6 font-mono text-xs text-[#1B1B1F] bg-[#F9F7F1] border border-[#1B1B1F] py-2.5 px-6 text-center tracking-wider">
+            <div className="mt-6 font-mono text-xs text-[#1B1B1F] bg-[#fff] border border-[#1B1B1F] py-2.5 px-6 text-center tracking-wider">
               157 tuýp chứa ma túy // &gt;11kg Ketamine &amp; Cocain
             </div>
           </div>
@@ -117,15 +118,15 @@ export const Chapter5CourtExpansion: React.FC = () => {
               </div>
             </div>
             <div className="mt-6 grid grid-cols-3 gap-4 w-full max-w-md text-center font-mono text-xs">
-              <div className="border border-[#1B1B1F] p-3 bg-[#F9F7F1]">
+              <div className="border border-[#1B1B1F] p-3 bg-[#fff]">
                 <div className="text-[#7A1F1F] font-bold text-xl leading-tight">11</div>
                 <div className="mt-1 font-bold text-[11px]">TỬ HÌNH</div>
               </div>
-              <div className="border border-[#1B1B1F] p-3 bg-[#F9F7F1]">
+              <div className="border border-[#1B1B1F] p-3 bg-[#fff]">
                 <div className="font-bold text-xl leading-tight text-[#1B1B1F]">19</div>
                 <div className="mt-1 font-bold text-[11px]">CHUNG THÂN</div>
               </div>
-              <div className="border border-[#1B1B1F] p-3 bg-[#F9F7F1]">
+              <div className="border border-[#1B1B1F] p-3 bg-[#fff]">
                 <div className="font-bold text-xl leading-tight text-[#1B1B1F]">197</div>
                 <div className="mt-1 font-bold text-[11px]">CÓ THỜI HẠN</div>
               </div>
@@ -134,7 +135,7 @@ export const Chapter5CourtExpansion: React.FC = () => {
         </div>
 
         {/* KHỐI VĂN BẢN VÀ ĐIỀU HƯỚNG DƯỚI */}
-        <div className="relative p-6 sm:p-8 border-l border-r border-b border-[#1B1B1F] bg-[#F9F7F1]">
+        <div className="relative p-6 sm:p-8 border-l border-r border-b border-[#1B1B1F] bg-[#fff]">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
             {/* Vùng hiển thị văn bản theo từng bước */}
             <div className="flex-1">

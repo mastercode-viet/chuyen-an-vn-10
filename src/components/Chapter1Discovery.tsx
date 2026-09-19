@@ -2,15 +2,17 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useActiveChapter } from '../hooks/useActiveChapter';
 import { fadeUp, viewportOnce, easeOut } from '../lib/motion';
+import vn10Done from '../assets/vn10-done.mp4';
 
 export const Chapter1Discovery: React.FC = () => {
   const isActive = useActiveChapter(1);
 
   return (
-    <section id="chuong-1" className="w-full py-20 bg-[#F9F7F1] border-b border-[#E0DDD5]">
+    <section id="chuong-1" className="w-full py-20 bg-[#fff] border-b border-[#E0DDD5]">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
@@ -26,11 +28,12 @@ export const Chapter1Discovery: React.FC = () => {
         </motion.div>
         <motion.h2
           initial="hidden"
+          animate="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
           transition={easeOut}
-          className={`font-headline-lg text-4xl md:text-5xl font-bold tracking-tight mb-8 transition-colors duration-300 ${
+          className={`font-headline-lg text-4xl md:text-5xl font-bold uppercase tracking-tight text-center mb-8 transition-colors duration-300 ${
           isActive ? 'text-[#7a1f1f] drop-shadow-lg' : 'text-[#1B1B1F]'
         }`}>
           Chương 1: Phát hiện
@@ -40,6 +43,7 @@ export const Chapter1Discovery: React.FC = () => {
           {/* Visual X-ray Screen */}
           <motion.div
             initial="hidden"
+            animate="hidden"
             whileInView="visible"
             viewport={viewportOnce}
             variants={fadeUp}
@@ -53,33 +57,16 @@ export const Chapter1Discovery: React.FC = () => {
               <span className="text-gray-500">08:45 AM - 16/03/2023 - SÂN BAY QUỐC TẾ TÂN SƠN NHẤT</span>
             </div>
 
-            <div className="relative aspect-video bg-[#1B1B1F] flex flex-col justify-between p-6 border border-[#1B1B1F] overflow-hidden">
-              <div className="flex justify-between items-start z-10">
-                <div className="bg-red-950 border border-red-500 px-3 py-1 text-xs font-mono text-red-200">
-                  SOI CHIẾU AN NINH MÁY BƯU KIỆN
-                </div>
-                <div className="text-right text-xs font-mono text-gray-400">
-                  CHUYẾN BAY VN10 // CDG-SGN
-                </div>
-              </div>
-
-              {/* Scanning visual crosshairs / grid */}
-              <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:16px_16px]" />
-
-              <div className="my-auto text-center z-10">
-                <p className="font-mono text-red-400 text-sm tracking-widest uppercase font-bold">
-                  CẢNH BÁO TẠP CHẤT ĐẶC BIỆT TRONG RUỘT KEM ĐÁNH RĂNG
-                </p>
-                <p className="font-mono text-xs text-gray-300 mt-2">
-                  154 tuýp Signal có phản ứng dương tính với hợp chất MDMA &amp; Ketamine
-                </p>
-              </div>
-
-              <div className="grid grid-cols-3 gap-2 pt-3 border-t border-gray-700 text-center font-mono text-xs text-gray-300 z-10">
-                <div>KHỐI LƯỢNG: 11.487g</div>
-                <div>KIỂM ĐỊNH: VIỆN KHHS</div>
-                <div>KẾT QUẢ: DƯƠNG TÍNH</div>
-              </div>
+            <div className="relative aspect-video bg-[#1B1B1F] border border-[#1B1B1F] overflow-hidden">
+              <video
+                src={vn10Done}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="mt-3 flex items-center justify-between text-xs font-mono text-gray-600">
@@ -91,6 +78,7 @@ export const Chapter1Discovery: React.FC = () => {
           {/* Text report excerpt */}
           <motion.div
             initial="hidden"
+            animate="hidden"
             whileInView="visible"
             viewport={viewportOnce}
             variants={fadeUp}
@@ -100,8 +88,8 @@ export const Chapter1Discovery: React.FC = () => {
             <div className="font-mono text-xs text-[#7a1f1f] uppercase tracking-widest mb-3 font-semibold">
               TRÍCH LỤC BIÊN BẢN SỰ CỐ
             </div>
-            <blockquote className="font-body-regular text-[#1B1B1F] mb-6 italic leading-relaxed text-sm">
-              "Ngày 16/3/2023, Chi cục Hải quan cửa khẩu sân bay quốc tế Tân Sơn Nhất phát hiện hơn 11 kg Ketamine và MDMA trong hành lý của 4 nữ tiếp viên trên chuyến bay VN10 từ Pháp về TP.HCM. Vụ việc sau đó được chuyển cho Cơ quan Cảnh sát điều tra Công an TP.HCM để điều tra, làm rõ."
+            <blockquote className="font-body-regular text-[#1B1B1F] mb-6  leading-relaxed text-sm">
+              Ngày 16/3/2023, Chi cục Hải quan cửa khẩu sân bay quốc tế Tân Sơn Nhất phát hiện hơn 11 kg Ketamine và MDMA trong hành lý của 4 nữ tiếp viên trên chuyến bay VN10 từ Pháp về TP.HCM. Vụ việc sau đó được chuyển cho Cơ quan Cảnh sát điều tra Công an TP.HCM để điều tra, làm rõ.
             </blockquote>
             <div className="space-y-3 pt-4 border-t border-[#E0DDD5] text-gray-600 font-mono text-xs">
               <div className="flex justify-between">

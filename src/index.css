@@ -38,7 +38,7 @@
   --color-primary: #5b060c;
   --color-primary-container: #7a1f1f;
   --color-navy-sub: #1f2a44;
-  --color-surface-paper: #F9F7F1;
+  --color-surface-paper: #fff;
   --font-display-hero: "Sac Viet Regular", "Playfair Display", serif;
   --font-headline-lg: "Sac Viet Regular", "Playfair Display", serif;
   --font-title-editorial: "Sac Viet Regular", "Playfair Display", serif;
@@ -53,7 +53,7 @@
   html, body {
     margin: 0;
     padding: 0;
-    background-color: #F9F7F1;
+    background-color: #fff;
     color: #1B1B1F;
     font-family: 'Inter', sans-serif;
   }
@@ -80,7 +80,7 @@
 }
 
 .light-grid-canvas {
-  background-color: #F9F7F1;
+  background-color: #fff;
   background-image: linear-gradient(to right, #E0DDD5 1px, transparent 1px),
                     linear-gradient(to bottom, #E0DDD5 1px, transparent 1px);
   background-size: 24px 24px;

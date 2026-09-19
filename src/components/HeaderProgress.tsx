@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import { useChapterContext } from '../contexts/ChapterContext';
 
 interface HeaderProgressProps {
   currentChapter?: string;
 }
 
 const NAV_LINKS = [
-  { href: '#chuong-1', label: 'C1: Phát hiện', className: 'hidden md:inline' },
-  { href: '#chuong-2', label: 'C2: Căn cứ', className: 'hidden md:inline' },
-  { href: '#chuong-3', label: 'C3: Bản đồ', className: 'hidden md:inline' },
-  { href: '#chuong-4', label: 'C4: Showbiz', className: 'hidden lg:inline' },
-  { href: '#chapter-5-interactive', label: 'C5: Đại án 227', className: '' },
-  { href: '#chuong-7-ket-luan', label: 'C7: Phán quyết', className: 'font-bold text-[#7a1f1f]' },
+  { href: '#chuong-1', label: 'C1: Phát hiện', chapter: 1, className: 'hidden md:inline' },
+  { href: '#chuong-2', label: 'C2: Căn cứ', chapter: 2, className: 'hidden md:inline' },
+  { href: '#chuong-3', label: 'C3: Bản đồ', chapter: 3, className: 'hidden md:inline' },
+  { href: '#chuong-4', label: 'C4: Showbiz', chapter: 4, className: 'hidden lg:inline' },
+  { href: '#chapter-5-interactive', label: 'C5: Đại án 227', chapter: 5, className: '' },
+  { href: '#chuong-6-ban-an', label: 'C6: Bản án', chapter: 6, className: 'hidden lg:inline' },
+  { href: '#chuong-7-ket-luan', label: 'C7: Phán quyết', chapter: 7, className: '' },
 ];
 
 export const HeaderProgress: React.FC<HeaderProgressProps> = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { activeChapter } = useChapterContext();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +38,7 @@ export const HeaderProgress: React.FC<HeaderProgressProps> = () => {
       initial={{ y: -48, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#F9F7F1]/95 backdrop-blur-xs border-b border-[#E0DDD5]"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#fff]/95 backdrop-blur-xs border-b border-[#E0DDD5]"
     >
       <div className="w-full h-1 bg-[#E0DDD5]">
         <motion.div
@@ -55,17 +58,22 @@ export const HeaderProgress: React.FC<HeaderProgressProps> = () => {
           </span>
         </div>
         <div className="flex items-center gap-4 text-[11px] text-gray-600">
-          {NAV_LINKS.map((link) => (
-            <motion.a
-              key={link.href}
-              href={link.href}
-              whileHover={{ y: -1 }}
-              whileTap={{ y: 0, scale: 0.96 }}
-              className={`hover:text-[#7a1f1f] transition-colors inline-block ${link.className}`}
-            >
-              {link.label}
-            </motion.a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = link.chapter === activeChapter;
+            return (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                whileHover={{ y: -1 }}
+                whileTap={{ y: 0, scale: 0.96 }}
+                className={`hover:text-[#7a1f1f] transition-colors inline-block ${
+                  isActive ? 'text-[#7a1f1f] font-bold' : ''
+                } ${link.className}`}
+              >
+                {link.label}
+              </motion.a>
+            );
+          })}
         </div>
       </div>
     </motion.header>

@@ -19,7 +19,7 @@ export const staggerContainer: Variants = {
   },
 };
 
-export const viewportOnce = { once: true, amount: 0.25 } as const;
+export const viewportOnce = { once: false, amount: 0.25 } as const;
 
 export const easeOut: Transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] };
 
