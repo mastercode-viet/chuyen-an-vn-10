@@ -500,7 +500,8 @@ export const Chapter3TacticalMap: React.FC = () => {
                       <div className="relative w-[520px] h-[480px] flex items-center justify-center">
                         <div className="absolute inset-0 overflow-hidden">
                           <img
-                            src="src/assets/v2-vn.png"
+                            src={vn}
+                            alt="Bản đồ Nam Bộ"
                             className="w-full h-full object-contain select-none"
                             style={{
                               mixBlendMode: 'multiply',
