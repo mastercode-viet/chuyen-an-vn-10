@@ -55,24 +55,24 @@ export const Chapter6Verdict: React.FC = () => {
           <h2 className={`font-title-editorial text-center text-4xl sm:text-5xl font-bold uppercase tracking-wide mb-4 border-b-2 border-[#1B1B1F] pb-4 transition-colors duration-300 ${
             isActive ? 'text-[#7A1F1F] drop-shadow-lg' : 'text-[#1B1B1F]'
           }`}>
-            Chương 6 - Bản án (3/9/2026)
+            Chương 6 : Bản án (3/9/2026)
           </h2>
-          <p className="text-justify sm:text-center text-[1.25rem] leading-relaxed max-w-3xl mx-auto">
+          <p className="font-body-regular text-justify sm:text-center text-[1.25rem] leading-relaxed max-w-3xl mx-auto">
             Ngày 3/9/2026, Tòa án nhân dân TP.HCM tuyên án đối với 227 bị cáo trong vụ án ma túy VN10. Các bị cáo bị xét xử về nhiều tội danh, trong đó có mua bán, vận chuyển, tàng trữ và tổ chức sử dụng trái phép chất ma túy.
           </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto mb-10 flex flex-col gap-4 leading-relaxed text-justify">
-          <p className="text-[1.25rem]">
+        <div className=" font-body-regular max-w-3xl mx-auto mb-10 flex flex-col gap-4 leading-relaxed text-justify">
+          <p className=" font-body-regular text-[1.25rem]">
             HĐXX tuyên 11 bị cáo án tử hình do giữ vai trò cầm đầu, tổ chức đường dây và trực tiếp giao dịch số lượng ma túy đặc biệt lớn; 19 bị cáo chịu mức án tù chung thân về các hành vi mua bán, vận chuyển ma túy xuyên biên giới và nội địa.
           </p>
-          <p className="text-[1.25rem]">
+          <p className=" font-body-regular text-[1.25rem]">
             Một số người được dư luận chú ý trong vụ án gồm các đối tượng có sức ảnh hưởng trên mạng xã hội và trong giới nghệ thuật, giải trí bị tuyên các mức án nghiêm khắc tương ứng với hành vi tổ chức, lôi kéo và tàng trữ sử dụng trái phép chất ma túy.
           </p>
-          <p className="text-[1.25rem]">
+          <p className=" font-body-regular text-[1.25rem]">
             Các bị cáo còn lại bị tuyên các mức án từ cải tạo không giam giữ, án treo cho đến tù có thời hạn từ 2 năm đến 20 năm, bảo đảm nguyên tắc cá thể hóa hình phạt, phân hóa vai trò và mở rộng tối đa chính sách khoan hồng của pháp luật đối với người thừa nhận hành vi, ăn năn hối cải.
           </p>
-          <p className="text-[1.25rem]">
+          <p className=" font-body-regular text-[1.25rem]">
             Theo HĐXX, cáo trạng của Viện kiểm sát truy tố các bị cáo là hoàn toàn có căn cứ, đúng người, đúng tội, đúng pháp luật. Bản án được tuyên là hồi chuông cảnh tỉnh nghiêm khắc nhất trước hiểm họa thâm nhập của ma túy qua đường hàng không, đồng thời khẳng định bản lĩnh tuyệt đối của lực lượng chức năng trong cuộc chiến bảo vệ an ninh trật tự xã hội.
           </p>
         </div>

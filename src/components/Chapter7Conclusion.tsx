@@ -28,9 +28,9 @@ export const Chapter7Conclusion: React.FC = () => {
           <h2 className={`font-headline-lg font-bold text-4xl sm:text-5xl tracking-wide uppercase mb-6 transition-colors duration-300  ${
             isActive ? 'text-[#7A1F1F] drop-shadow-lg' : 'text-[#1B1B1F]'
           }`}>
-            CHƯƠNG 7 - KẾT: NGUYÊN TẮC XÉT XỬ
+            CHƯƠNG 7 : KẾT: NGUYÊN TẮC XÉT XỬ
           </h2>
-          <p className="text-[#1B1B1F] text-justify sm:text-center text-[1.25rem] leading-relaxed font-normal w-full">
+          <p className="text-[#1B1B1F] font-body-regular text-justify sm:text-center text-[1.25rem] leading-relaxed font-normal w-full">
             Hành trình từ những tuýp kem đánh răng vô chủ tại Tân Sơn Nhất đến phiên tòa lịch sử với 227 bị cáo đã chính thức khép lại. Hàng trăm ngàn trang hồ sơ, hàng ngàn ngày điều tra truy xét cuối cùng cũng được đặt lên bàn cân của pháp luật. Khép lại chuyên án ma túy chấn động VN10, bản án được tuyên không chỉ là sự trừng phạt, mà còn là một bản thông điệp sắc lạnh về ranh giới của tội ác.
           </p>
         </motion.div>
@@ -68,7 +68,7 @@ export const Chapter7Conclusion: React.FC = () => {
                   <span className="w-2.5 h-2.5 bg-[#7A1F1F] inline-block" />
                   TRỪNG PHẠT NGHIÊM KHẮC // KHÔNG CÓ VÙNG CẤM
                 </div>
-                <p className="text-[#1B1B1F] text-justify text-[1.25rem] leading-relaxed mb-8">
+                <p className=" font-body-regular text-[#1B1B1F] text-justify text-[1.25rem] leading-relaxed mb-8">
                   Đối với những kẻ cầm đầu, tổ chức đường dây xuyên quốc gia với số lượng ma túy đặc biệt lớn, pháp luật giáng xuống đòn trừng phạt nghiêm khắc nhất để răn đe, loại bỏ vĩnh viễn khỏi xã hội.
                 </p>
               </div>
@@ -89,7 +89,7 @@ export const Chapter7Conclusion: React.FC = () => {
                   <span className="w-2.5 h-2.5 bg-[#1F2A44] inline-block" />
                   CHÍNH SÁCH KHOAN HỒNG // PHÂN HÓA VAI TRÒ
                 </div>
-                <p className="text-[#1B1B1F] text-justify text-[1.25rem] leading-relaxed mb-8">
+                <p className="text-[#1B1B1F] text-justify text-[1.25rem] leading-relaxed mb-8 font-body-regular">
                   Tuy nhiên, pháp luật vẫn mở ra con đường sống. Đối với những bị cáo có vai trò thứ yếu, đồng phạm giúp sức nhưng có nhân thân tốt, hoàn cảnh gia đình khó khăn, Tòa án đã áp dụng tối đa các tình tiết giảm nhẹ. Sự khoan hồng được đưa ra nhằm trao cho họ một cơ hội chuộc lỗi, cải tạo để làm lại cuộc đời.
                 </p>
               </div>
