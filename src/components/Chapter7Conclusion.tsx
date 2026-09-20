@@ -135,7 +135,7 @@ export const Chapter7Conclusion: React.FC = () => {
                 <h4 className="font-title-editorial font-bold text-xl text-[#1B1B1F] uppercase border-b border-[#1B1B1F] pb-2 mb-3">
                   Phần lớn bị cáo
                 </h4>
-                <p className="text-[1.25rem] text-[#1B1B1F] leading-relaxed text-justify">
+                <p className="text-[1.25rem] font-body-regular  text-[#1B1B1F] leading-relaxed text-justify">
                   Thể hiện thái độ thành khẩn, ăn năn hối cải, cúi đầu thừa nhận toàn bộ hành vi phạm tội. Nhận được sự khoan hồng.
                 </p>
               </div>
@@ -158,7 +158,7 @@ export const Chapter7Conclusion: React.FC = () => {
                 <h4 className="font-title-editorial font-bold text-xl text-white uppercase border-b border-white/30 pb-2 mb-3">
                   Vũ Hải Anh
                 </h4>
-                <p className="text-[1.25rem] text-gray-200 leading-relaxed text-justify">
+                <p className="text-[1.25rem] font-body-regular text-gray-200 leading-relaxed text-justify">
                   Liên tục phản bác cáo trạng, kiên quyết không nhận tội. Chứng cứ vững chắc và lời khai chéo khiến sự bất hợp tác tự tước đi cơ hội khoan hồng.
                 </p>
               </div>
@@ -181,7 +181,7 @@ export const Chapter7Conclusion: React.FC = () => {
                 <h4 className="font-title-editorial font-bold text-xl text-white uppercase border-b border-white/30 pb-2 mb-3">
                   Hà Danh Nậm &amp; 3 đồng phạm
                 </h4>
-                <p className="text-[1.25rem] text-gray-100 leading-relaxed text-justify">
+                <p className="text-[1.25rem] font-body-regular text-gray-100 leading-relaxed text-justify">
                   Đang bỏ trốn, bị xét xử vắng mặt. Tòa án đã chính thức phát lệnh truy nã đặc biệt.
                 </p>
               </div>
